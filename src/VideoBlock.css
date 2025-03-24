@@ -1,0 +1,33 @@
+.t-theme-video-block {
+  display: contents;
+  min-height: 100px;
+  max-height: 500px;
+}
+
+.t-theme-video-block .download-icon {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.2em;
+}
+
+.t-theme-video-block .t-root {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: inherit;
+  max-height: inherit;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 -1em 0.5em;
+}
+
+.t-theme-video-block .t-video {
+  min-width: 0;
+  min-height: 0;
+  max-height: inherit;
+}
+
+.t-theme-video-block .t-filesize {
+  font-size: 0.8em;
+}

@@ -1,0 +1,32 @@
+.t-theme-referenced-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.t-theme-referenced-message .t-sender-name {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.t-theme-referenced-message .t-content {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0.165em 0px;
+}
+
+/* The following sections ensure that lists are more compact by displaying them inline */
+.t-theme-referenced-message .t-content ul {
+  list-style: inside;
+  margin: 0;
+  padding: 0;
+}
+
+.t-theme-referenced-message .t-content li {
+  display: inline list-item;
+  margin-right: 1em;
+}
+
+.t-theme-referenced-message .t-content li::marker {
+  content: "•  ";
+}

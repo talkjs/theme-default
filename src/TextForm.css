@@ -1,0 +1,92 @@
+.t-theme-text-form {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.t-theme-text-form .t-editor .t-text-input {
+  min-height: 3.143em;
+  max-height: 9em;
+  border-radius: 0.65em;
+  border: 1px solid white;
+
+  background-color: white;
+  display: block;
+  resize: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  word-break: break-word;
+  white-space: pre-wrap;
+
+  padding: 0 1em;
+  transition: box-shadow 150ms ease-out;
+}
+
+.t-theme-text-form .t-editor .t-text-input:focus-visible {
+  border-color: white;
+  outline: #a3a3a3 solid 1px;
+}
+
+/* Fallback for browsers without :focus-visible support */
+@supports not selector(:focus-visible) {
+  .t-theme-text-form .t-editor .t-text-input:focus {
+    border-color: white;
+    outline: #a3a3a3 solid 1px;
+  }
+}
+
+.t-theme-text-form .t-send-column {
+  flex-grow: 0;
+  flex-shrink: 0;
+  white-space: nowrap;
+  align-self: center;
+  display: flex;
+}
+
+.t-theme-text-form .t-textbox-column {
+  position: relative;
+  flex-grow: 1;
+  margin-right: 0.28em;
+}
+
+.t-theme-text-form .t-send-button {
+  width: 2.571em;
+  height: 2.571em;
+  padding: 0.571em;
+  border: 0;
+  border-radius: 9999px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  background: transparent;
+  color: currentColor;
+  opacity: 0.75;
+  transition: 150ms ease-out;
+}
+
+.t-theme-text-form .t-send-button:hover,
+.t-theme-text-form .t-send-button:focus {
+  background-color: rgba(38, 38, 38, 0.05);
+}
+
+.t-theme-text-form .t-send-button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(#007df9, 50%);
+}
+
+.t-theme-text-form .t-send-button {
+  display: flex;
+}
+
+.t-theme-text-form .t-send-button[disabled] {
+  color: currentColor;
+}
+
+.t-theme-text-form .t-readonly {
+  opacity: 0.5;
+  user-select: none;
+}

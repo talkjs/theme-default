@@ -1,0 +1,13 @@
+.t-theme-message-field .t-wrapper {
+  flex-shrink: 0;
+  position: relative;
+  order: 2;
+  padding: 16px;
+  color: #111;
+  font-size: 16px;
+  background-color: #ececec;
+  border-top: #d4d4d4 solid 1px;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+}

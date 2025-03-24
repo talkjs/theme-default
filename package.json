@@ -1,0 +1,56 @@
+{
+  "name": "@talkjs/theme-default",
+  "version": "0.0.1",
+  "bugs": {
+    "url": "https://github.com/talkjs/theme-default/issues"
+  },
+  "homepage": "https://github.com/talkjs/theme-default",
+  "license": "MIT",
+  "description": "The default theme for the @talkjs/components package.",
+  "type": "module",
+  "files": [
+    "src",
+    "corporate_contributor_license_agreement.md",
+    "individual_contributor_license_agreement.md"
+  ],
+  "browser": "./src/index.js",
+  "style": "./src/index.css",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "require": null
+    },
+    "./style.css": {
+      "default": "./src/index.css"
+    }
+  },
+  "dependencies": {
+    "@talkjs/components": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "keywords": [
+    "chat",
+    "chat api",
+    "chat sdk",
+    "messaging",
+    "talk",
+    "talkjs",
+    "realtime",
+    "real-time messaging",
+    "real-time chat",
+    "direct messaging",
+    "user-to-user chat",
+    "private messaging",
+    "group chat",
+    "dm",
+    "pm",
+    "notification",
+    "notifications"
+  ]
+}

@@ -1,0 +1,23 @@
+.t-theme-file-block {
+  display: contents;
+}
+
+.t-theme-file-block a {
+  word-break: break-all;
+  text-decoration: none;
+}
+
+.t-theme-file-block .t-filename {
+  text-decoration: underline;
+}
+
+.t-theme-file-block .t-attachment-icon {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.2em;
+}
+
+.t-theme-file-block .t-filesize {
+  white-space: nowrap;
+  font-size: 75%;
+}
