@@ -1,6 +1,6 @@
 {
   "name": "@talkjs/theme-default",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "bugs": {
     "url": "https://github.com/talkjs/theme-default/issues"
   },
@@ -29,7 +29,7 @@
     }
   },
   "dependencies": {
-    "@talkjs/components": "^0.0.2"
+    "@talkjs/components": "^0.0.3"
   },
   "peerDependencies": {
     "react": "^18.2.0"
