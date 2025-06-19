@@ -1,19 +1,16 @@
-import { AudioPlayer, formatFilesize, getFilename, html } from "@talkjs/components/theming";
+import { AudioPlayer, formatFilesize, html } from "@talkjs/components/theming";
 /** @import { AudioBlockProps } from "@talkjs/components/theming"; */
 import { Icon } from "./Icon.js";
 
 /** @param {AudioBlockProps} props */
-export function AudioBlock(props) {
-  const { block } = props;
-  const filename = getFilename(block);
-
+export function AudioBlock({ block, downloadUrl }) {
   return html`
     <div className="t-theme-audio-block">
-      <${AudioPlayer} src=${block.url} filename=${filename} />
+      <${AudioPlayer} src=${block.url} filename=${block.filename} />
 
-      <a className="t-body-text" href=${block.url}>
+      <a className="t-body-text" href=${downloadUrl}>
         <${Icon} type="attachment" className="t-attachment-icon" />
-        <span className="t-filename">${filename}</span>
+        <span className="t-filename">${block.filename}</span>
         <span className="t-filesize"> (${formatFilesize(block.size)})</span>
       </a>
     </div>

@@ -1,9 +1,9 @@
-import { html, formatFilesize, getFilename } from "@talkjs/components/theming";
+import { html, formatFilesize } from "@talkjs/components/theming";
 /** @import { VideoBlockProps } from "@talkjs/components/theming"; */
 import { Icon } from "./Icon.js";
 
 /** @param {VideoBlockProps} props */
-export function VideoBlock({ block }) {
+export function VideoBlock({ block, downloadUrl }) {
   const width = block.width || 1;
   const height = block.height || 1;
 
@@ -22,9 +22,9 @@ export function VideoBlock({ block }) {
         ></video>
       </div>
 
-      <a href=${block.url} className="t-body-text">
+      <a href=${downloadUrl} className="t-body-text">
         <${Icon} className="download-icon" type="download" />
-        <span>${getFilename(block)}</span>
+        <span>${block.filename}</span>
         <span className="t-filesize"> (${formatFilesize(block.size)})</span>
       </a>
     </div>

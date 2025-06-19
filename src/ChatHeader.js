@@ -42,11 +42,11 @@ function Title(props) {
 }
 
 /**
- * @param {types.UserSnapshot[]} participants
- * @param {types.UserSnapshot} currentUser
+ * @param {types.ParticipantSnapshot[]} participants
+ * @param {types.ParticipantSnapshot} currentUser
  */
 function getOtherParticipantNames(participants, currentUser) {
-  const otherParticipants = participants.filter((user) => user.id !== currentUser.id);
+  const otherParticipants = participants.filter(({ user }) => user.id !== currentUser.id);
   const shownParticipants = otherParticipants.length === 0 ? participants : otherParticipants;
-  return shownParticipants.map((user) => user.name).join(", ");
+  return shownParticipants.map(({ user }) => user.name).join(", ");
 }

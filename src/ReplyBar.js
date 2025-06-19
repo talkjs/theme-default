@@ -1,4 +1,4 @@
-import { html, formatDuration, Text, getFilename } from "@talkjs/components/theming";
+import { html, formatDuration, Text } from "@talkjs/components/theming";
 /** @import * as types from "@talkjs/components/theming"; */
 import { Icon } from "./Icon.js";
 
@@ -49,7 +49,7 @@ function Content({ referencedMessage, t }) {
     if (firstContentBlock.subtype === "voice") {
       return html`<span>${t.VOICE_MESSAGE} (${formatDuration(firstContentBlock.duration)})</span>`;
     } else {
-      return html`<span>${getFilename(firstContentBlock)}</span>`;
+      return html`<span>${firstContentBlock.filename}</span>`;
     }
   }
 }

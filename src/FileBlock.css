@@ -21,3 +21,11 @@
   white-space: nowrap;
   font-size: 75%;
 }
+
+.t-theme-file-block .t-loading-spinner {
+  animation: spin 1.2s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  display: block;
+  margin: auto;
+  width: 4em;
+  height: 4em;
+}

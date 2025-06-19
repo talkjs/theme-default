@@ -26,6 +26,9 @@
   min-width: 0;
   min-height: 0;
   max-height: inherit;
+
+  width: 100%;
+  height: auto;
 }
 
 .t-theme-image-block .t-filesize {

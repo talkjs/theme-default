@@ -1,6 +1,6 @@
 import { html, TimeAgoTimer } from "@talkjs/components/theming";
 /** @import * as types from "@talkjs/components/theming"; */
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 /**
  * @typedef {{
@@ -26,7 +26,7 @@ export function TimeAgo({ timestamp, t }) {
 
   const [time, setTime] = useState({ long: "", short: "" });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const timer = new TimeAgoTimer(timestamp, t);
     setTime(timer.currentValue());
 

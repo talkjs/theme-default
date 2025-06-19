@@ -23,8 +23,8 @@ export function ConversationImage({ conversation, participants, currentUser }) {
     return html`<${Avatar} photoUrl=${getPhotoUrlWithFallback(currentUser)} />`;
   }
   if (participants.length === 2) {
-    const otherUser = participants[0].id === currentUser.id ? participants[1] : participants[0];
-    return html`<${Avatar} photoUrl=${getPhotoUrlWithFallback(otherUser)} />`;
+    const otherUser = participants[0].user.id === currentUser.id ? participants[1] : participants[0];
+    return html`<${Avatar} photoUrl=${getPhotoUrlWithFallback(otherUser.user)} />`;
   }
 
   return html`<${GroupChatImage} participants=${participants} />`;

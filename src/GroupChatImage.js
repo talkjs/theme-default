@@ -3,7 +3,7 @@ import { html, getPhotoUrlWithFallback } from "@talkjs/components/theming";
 
 /**
  * @typedef {{
- *   participants: types.UserSnapshot[];
+ *   participants: types.ParticipantSnapshot[];
  * }} Props
  */
 
@@ -15,11 +15,11 @@ export function GroupChatImage({ participants }) {
     <div className="t-theme-group-chat-image">
       <div
         className="t-mini-avatar"
-        style=${{ backgroundImage: `url("${getPhotoUrlWithFallback(participants[0])}")` }}
+        style=${{ backgroundImage: `url("${getPhotoUrlWithFallback(participants[0].user)}")` }}
       ></div>
       <div
         className="t-mini-avatar"
-        style=${{ backgroundImage: `url("${getPhotoUrlWithFallback(participants[1])}")` }}
+        style=${{ backgroundImage: `url("${getPhotoUrlWithFallback(participants[1].user)}")` }}
       ></div>
       ${participants.length > 2 &&
       html`<svg className="t-counter" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">

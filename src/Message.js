@@ -7,7 +7,8 @@ import { TimeAgo } from "./TimeAgo.js";
 
 /** @param {MessageProps} props */
 export function Message(props) {
-  const { message, participants, permissions, currentUser, chatbox, t, messageActionMenuAnchorRef } = props;
+  const { message, participants, permissions, currentUser, chatbox, t, messageActionMenuAnchorRef, messageStatus } =
+    props;
 
   const isGroupChat = participants.length >= 3;
   const sender = message.sender;
@@ -15,8 +16,7 @@ export function Message(props) {
   const isMe = sender?.id === currentUser.id;
   const showAuthor = !isMe && isGroupChat;
   const referencedMessage = message.referencedMessage;
-  const showActionMenu = permissions.canReplyToMessage || permissions.canDeleteMessage;
-
+  const showActionMenu = messageStatus !== "sending" && (permissions.canReplyToMessage || permissions.canDeleteMessage);
 
   let senderType;
   if (!sender) {
@@ -51,11 +51,35 @@ export function Message(props) {
           `}
           ${referencedMessage && html`<${ReferencedMessage} referencedMessage=${referencedMessage} t=${t} />`}
 
-          <${MessageContent} message=${message} currentUser=${currentUser} t=${t} />
+          <${MessageContent} message=${message} currentUser=${currentUser} t=${t} messageStatus=${messageStatus} />
 
-          <${TimeAgo} timestamp=${message.createdAt} t=${t} />
+          <div className="t-message-status">
+            <${TimeAgo} timestamp=${message.createdAt} t=${t} />
+            <${StatusTick} ...${props} />
+          </div>
         </div>
       </div>
     </div>
   `;
+}
+
+/** @param {MessageProps} props */
+function StatusTick({ messageStatus }) {
+  if (messageStatus === "sending") {
+    return html`
+      <span className="t-status-icon">
+        <${Icon} type="spinner" className="t-message-loading-spinner" />
+      </span>
+    `;
+  }
+
+  if (messageStatus === "sent") {
+    return html`<span className="t-status-icon">✓</span>`;
+  }
+
+  if (messageStatus === "everyoneRead") {
+    return html`<span className="t-status-icon">✓✓</span>`;
+  }
+
+  return null;
 }

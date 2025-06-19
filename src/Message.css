@@ -262,3 +262,30 @@
 .t-theme-message .t-message-content a {
   color: currentColor;
 }
+
+.t-theme-message .t-message-status {
+  display: inline-flex;
+
+  font-size: 75%;
+
+  float: right;
+  margin-left: 2em;
+  margin-top: 0.6em;
+  opacity: 75%;
+
+  min-width: 3.5ch;
+  text-align: right;
+}
+
+.t-theme-message .t-message-loading-spinner {
+  animation: spin 1.2s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  width: 1em;
+  height: 1em;
+}
+
+.t-theme-message .t-status-icon {
+  margin-left: 0.25em;
+  letter-spacing: -0.3rem;
+
+  min-width: 1em;
+}
