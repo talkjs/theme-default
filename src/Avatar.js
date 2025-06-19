@@ -13,9 +13,9 @@ export function Avatar({ photoUrl, float }) {
     <div
       className="t-theme-avatar"
       style=${{
-        float,
-        backgroundImage: `url(${photoUrl})`,
-      }}
+      float,
+      backgroundImage: `url(${photoUrl})`,
+    }}
     />
   `;
 }
