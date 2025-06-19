@@ -1,4 +1,4 @@
-import { html, makeTimer } from "@talkjs/components/theming";
+import { html, TimeAgoTimer } from "@talkjs/components/theming";
 /** @import * as types from "@talkjs/components/theming"; */
 import { useEffect, useState } from "react";
 
@@ -12,9 +12,9 @@ import { useEffect, useState } from "react";
  */
 
 /** @param {Props} props */
-export function TimeAgo({ timestamp, locale, t }) {
+export function TimeAgo({ timestamp, t }) {
   // Turns `timestamp` into a long, informative, locale specific datetime string
-  const absoluteDateTimeString = new Date(timestamp).toLocaleString(locale, {
+  const absoluteDateTimeString = new Date(timestamp).toLocaleString(t.locale, {
     weekday: "short",
     year: "numeric",
     month: "long",
@@ -27,13 +27,11 @@ export function TimeAgo({ timestamp, locale, t }) {
   const [time, setTime] = useState({ long: "", short: "" });
 
   useEffect(() => {
-    const timer = makeTimer(timestamp, { t, locale });
+    const timer = new TimeAgoTimer(timestamp, t);
     setTime(timer.currentValue());
-    timer.subscribe((time) => setTime(time));
 
-    return () => {
-      timer.cleanup();
-    };
+    const cleanup = timer.onTick((timeAgo) => setTime(timeAgo));
+    return cleanup;
   }, []);
 
   return html`

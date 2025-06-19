@@ -1,19 +1,14 @@
-export { AudioBlock } from "./AudioBlock.js";
-export { Avatar } from "./Avatar.js";
 export { ChatHeader } from "./ChatHeader.js";
-export { ConversationImage } from "./ConversationImage.js";
-export { FileBlock } from "./FileBlock.js";
-export { GroupChatImage } from "./GroupChatImage.js";
-export { Icon } from "./Icon.js";
-export { ImageBlock } from "./ImageBlock.js";
-export { LocationBlock } from "./LocationBlock.js";
 export { Message } from "./Message.js";
 export { MessageActionMenu } from "./MessageActionMenu.js";
 export { MessageField } from "./MessageField.js";
-export { ReferencedMessage } from "./ReferencedMessage.js";
-export { ReplyBar } from "./ReplyBar.js";
+export { Icon } from "./Icon.js";
+export { MessageDivider } from "./MessageDivider.js";
+
+export { AudioBlock } from "./AudioBlock.js";
+export { FileBlock } from "./FileBlock.js";
+export { ImageBlock } from "./ImageBlock.js";
+export { LocationBlock } from "./LocationBlock.js";
 export { TextBlock } from "./TextBlock.js";
-export { TextForm } from "./TextForm.js";
-export { TimeAgo } from "./TimeAgo.js";
 export { VideoBlock } from "./VideoBlock.js";
 export { VoiceBlock } from "./VoiceBlock.js";

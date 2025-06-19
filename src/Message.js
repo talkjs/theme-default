@@ -7,17 +7,7 @@ import { TimeAgo } from "./TimeAgo.js";
 
 /** @param {MessageProps} props */
 export function Message(props) {
-  const {
-    message,
-    participants,
-    permissions,
-    currentUser,
-    chatbox,
-    t,
-    isFirstInGroup,
-    messageActionMenuAnchorRef,
-    app,
-  } = props;
+  const { message, participants, permissions, currentUser, chatbox, t, messageActionMenuAnchorRef } = props;
 
   const isGroupChat = participants.length >= 3;
   const sender = message.sender;
@@ -25,9 +15,8 @@ export function Message(props) {
   const isMe = sender?.id === currentUser.id;
   const showAuthor = !isMe && isGroupChat;
   const referencedMessage = message.referencedMessage;
-  const canShowActionMenu = permissions.canReply || permissions.canDelete;
+  const showActionMenu = permissions.canReplyToMessage || permissions.canDeleteMessage;
 
-  const locale = currentUser.locale ?? app.defaultLocale;
 
   let senderType;
   if (!sender) {
@@ -41,7 +30,7 @@ export function Message(props) {
   return html`
     <div className="t-theme-message" t-sender=${senderType} t-message-id=${message.id}>
       <div className="t-message-row">
-        ${isFirstInGroup && sender && html`<${Avatar} photoUrl=${getPhotoUrlWithFallback(sender)} />`}
+        ${sender && html`<${Avatar} photoUrl=${getPhotoUrlWithFallback(sender)} />`}
 
         <div className="t-message-body">
           <!-- in group chats, show the message sender name in a random color -->
@@ -50,7 +39,7 @@ export function Message(props) {
           html`<div className="t-message-sender-name" style=${{ color: getRandomColor(sender.id) }}>
             ${sender.name}
           </div>`}
-          ${canShowActionMenu &&
+          ${showActionMenu &&
           html`
             <button
               className="t-message-action-menu-trigger"
@@ -64,7 +53,7 @@ export function Message(props) {
 
           <${MessageContent} message=${message} currentUser=${currentUser} t=${t} />
 
-          <${TimeAgo} timestamp=${message.createdAt} locale=${locale} t=${t} />
+          <${TimeAgo} timestamp=${message.createdAt} t=${t} />
         </div>
       </div>
     </div>

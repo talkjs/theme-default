@@ -4,14 +4,15 @@ import { Icon } from "./Icon.js";
 
 /**
  * @typedef {{
+ *   t: types.Translation;
  *   conversation: types.ConversationSnapshot;
  *   editor: types.EditorController;
- *   t: types.Translation;
+ *   permissions: types.UserPermissions;
  * }} Props
  */
 
 /** @param {Props} props */
-export function TextForm({ t, conversation, editor }) {
+export function TextForm({ t, conversation, editor, permissions }) {
   if (conversation.access === "Read") {
     return html`
       <div className="t-theme-text-form">
@@ -30,6 +31,31 @@ export function TextForm({ t, conversation, editor }) {
     <div className="t-theme-text-form">
       <div className="t-textbox-column">
         <${Editor} placeholder=${t.ENTRYBOX_PLACEHOLDER} />
+
+        <div className="t-button-overlay">
+          ${editor.isEmpty &&
+          permissions.canShareLocation &&
+          html`<button
+            className="t-location-button"
+            t-kind="icon-button"
+            aria-label=${t.UPLOAD_SHARE_LOCATION}
+            title=${t.UPLOAD_SHARE_LOCATION}
+            onClick=${() => editor.shareLocation()}
+          >
+            <${Icon} type="locationPin" />
+          </button>`}
+          ${editor.isEmpty &&
+          permissions.canShareFile &&
+          html`<button
+            className="t-attachment-button"
+            t-kind="icon-button"
+            aria-label=${t.UPLOAD_SEND_FILE}
+            title=${t.UPLOAD_SEND_FILE}
+            onClick=${() => editor.attachFile()}
+          >
+            <${Icon} type="attach" />
+          </button>`}
+        </div>
       </div>
 
       <div className="t-send-column">

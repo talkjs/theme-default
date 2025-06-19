@@ -13,9 +13,9 @@ export function MessageActionMenu(props) {
 
   return html`
     <div className="t-theme-message-action-menu">
-      ${permissions.canReply &&
+      ${permissions.canReplyToMessage &&
       html`<button t-action="reply" onClick=${() => setReferencedMessage(message.id)}>${t.REPLY_TO_MESSAGE}</button>`}
-      ${permissions.canDelete &&
+      ${permissions.canDeleteMessage &&
       html`<button t-action="delete" onClick=${() => chatbox.deleteMessage(message.id)}>${t.DELETE_MESSAGE}</button>`}
     </div>
   `;

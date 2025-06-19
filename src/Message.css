@@ -3,16 +3,24 @@
   margin-top: 0.35em;
 }
 
-.t-theme-message:has(.t-theme-avatar) {
+.t-theme-message:last-child {
   margin-top: 1.35em;
 }
 
-.t-theme-message[t-sender="currentUser"]:not(:has(.t-theme-avatar)) {
+.t-theme-message[t-sender="currentUser"]:not(:last-child) {
   margin-right: 3em;
 }
 
-.t-theme-message[t-sender="other"]:not(:has(.t-theme-avatar)) {
+.t-theme-message[t-sender="other"]:not(:last-child) {
   margin-left: 3em;
+}
+
+.t-theme-message:not(:last-child) .t-theme-avatar {
+  display: none;
+}
+
+.t-theme-message:last-child .t-theme-avatar {
+  display: block;
 }
 
 .t-theme-message[t-sender="system"] {

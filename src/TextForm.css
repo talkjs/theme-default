@@ -90,3 +90,41 @@
   opacity: 0.5;
   user-select: none;
 }
+
+.t-theme-text-form .t-button-overlay {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.t-theme-text-form [t-kind=icon-button] {
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  border: 0;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  color: currentColor;
+  opacity: 0.75;
+  transition: 150ms ease-out;
+}
+.t-theme-text-form [t-kind=icon-button]:hover,
+.t-theme-text-form [t-kind=icon-button]:focus {
+  background-color: rgba(#262626, 5%);
+  opacity: 1;
+}
+
+/* a11y: show fat outline when the button is focused using eg keyboard navigation */
+.t-theme-text-form [t-kind=icon-button]:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(#007DF9, 50%);
+
+}
