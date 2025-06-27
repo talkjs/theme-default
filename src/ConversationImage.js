@@ -1,5 +1,5 @@
-import { html, getPhotoUrlWithFallback } from "@talkjs/components/theming";
-/** @import * as types from "@talkjs/components/theming"; */
+import { html, getPhotoUrlWithFallback } from "@talkjs/react_components/theming";
+/** @import * as types from "@talkjs/react_components/theming"; */
 import { Avatar } from "./Avatar.js";
 import { GroupChatImage } from "./GroupChatImage.js";
 
@@ -23,8 +23,13 @@ export function ConversationImage({ conversation, participants, currentUser }) {
     return html`<${Avatar} photoUrl=${getPhotoUrlWithFallback(currentUser)} />`;
   }
   if (participants.length === 2) {
-    const otherUser = participants[0].user.id === currentUser.id ? participants[1] : participants[0];
-    return html`<${Avatar} photoUrl=${getPhotoUrlWithFallback(otherUser.user)} />`;
+    const otherUser =
+      participants[0].user.id === currentUser.id
+        ? participants[1]
+        : participants[0];
+    return html`<${Avatar}
+      photoUrl=${getPhotoUrlWithFallback(otherUser.user)}
+    />`;
   }
 
   return html`<${GroupChatImage} participants=${participants} />`;

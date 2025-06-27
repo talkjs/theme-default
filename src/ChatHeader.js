@@ -1,5 +1,5 @@
-import { html } from "@talkjs/components/theming";
-/** @import * as types from "@talkjs/components/theming" */
+import { html } from "@talkjs/react_components/theming";
+/** @import * as types from "@talkjs/react_components/theming" */
 import { ConversationImage } from "./ConversationImage.js";
 
 /** @param {types.ChatHeaderProps} props */
@@ -34,10 +34,14 @@ function Title(props) {
   if (conversation.subject) {
     return html`
       <div className="t-title">${conversation.subject}</div>
-      <div className="t-subtitle">${getOtherParticipantNames(participants, currentUser)}</div>
+      <div className="t-subtitle">
+        ${getOtherParticipantNames(participants, currentUser)}
+      </div>
     `;
   } else {
-    return html`<div className="t-title">${getOtherParticipantNames(participants, currentUser)}</div>`;
+    return html`<div className="t-title">
+      ${getOtherParticipantNames(participants, currentUser)}
+    </div>`;
   }
 }
 
@@ -46,7 +50,10 @@ function Title(props) {
  * @param {types.ParticipantSnapshot} currentUser
  */
 function getOtherParticipantNames(participants, currentUser) {
-  const otherParticipants = participants.filter(({ user }) => user.id !== currentUser.id);
-  const shownParticipants = otherParticipants.length === 0 ? participants : otherParticipants;
+  const otherParticipants = participants.filter(
+    ({ user }) => user.id !== currentUser.id,
+  );
+  const shownParticipants =
+    otherParticipants.length === 0 ? participants : otherParticipants;
   return shownParticipants.map(({ user }) => user.name).join(", ");
 }

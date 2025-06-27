@@ -1,5 +1,5 @@
-import { html, getPhotoUrlWithFallback } from "@talkjs/components/theming";
-/** @import * as types from "@talkjs/components/theming"; */
+import { html, getPhotoUrlWithFallback } from "@talkjs/react_components/theming";
+/** @import * as types from "@talkjs/react_components/theming"; */
 
 /**
  * @typedef {{
@@ -22,14 +22,24 @@ export function GroupChatImage({ participants }) {
         style=${{ backgroundImage: `url("${getPhotoUrlWithFallback(participants[1].user)}")` }}
       ></div>
       ${participants.length > 2 &&
-      html`<svg className="t-counter" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      html`<svg
+        className="t-counter"
+        viewBox="0 0 22 22"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <!-- Using an svg as a counter as then we can use clip-path -->
         <g className="t-group">
           <!--
                   Note: fill="currentColor" inherits text 'color'
                         from its parent, in this case '.t-group'.
                   -->
-          <rect x="0" y="0" width=${counterSize} height=${counterSize} fill="currentColor" />
+          <rect
+            x="0"
+            y="0"
+            width=${counterSize}
+            height=${counterSize}
+            fill="currentColor"
+          />
         </g>
         <!--
                 Note: fill="currentColor" inherits text 'color'

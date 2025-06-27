@@ -1,5 +1,5 @@
-import { html, getGoogleMapsUrls } from "@talkjs/components/theming";
-/** @import { LocationBlockProps } from "@talkjs/components/theming"; */
+import { html, getGoogleMapsUrls } from "@talkjs/react_components/theming";
+/** @import { LocationBlockProps } from "@talkjs/react_components/theming"; */
 
 /** @param {LocationBlockProps} props */
 export function LocationBlock({ block }) {
@@ -18,7 +18,9 @@ export function LocationBlock({ block }) {
       ></a>
 
       <span className="t-body-text">
-        <a href=${linkUrl} target="_blank" rel="noopener noreferrer">${linkUrl}</a>
+        <a href=${linkUrl} target="_blank" rel="noopener noreferrer"
+          >${linkUrl}</a
+        >
       </span>
     </div>
   `;

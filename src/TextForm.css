@@ -28,6 +28,13 @@
   outline: #a3a3a3 solid 1px;
 }
 
+.t-theme-text-form .t-editor .t-text-input p {
+  margin: 0.875em 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
 /* Fallback for browsers without :focus-visible support */
 @supports not selector(:focus-visible) {
   .t-theme-text-form .t-editor .t-text-input:focus {

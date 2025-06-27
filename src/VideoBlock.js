@@ -1,5 +1,5 @@
-import { html, formatFilesize } from "@talkjs/components/theming";
-/** @import { VideoBlockProps } from "@talkjs/components/theming"; */
+import { html, formatFilesize } from "@talkjs/react_components/theming";
+/** @import { VideoBlockProps } from "@talkjs/react_components/theming"; */
 import { Icon } from "./Icon.js";
 
 /** @param {VideoBlockProps} props */

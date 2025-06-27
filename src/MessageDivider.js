@@ -1,5 +1,5 @@
-import { html, userFriendlyDate } from "@talkjs/components/theming";
-/** @import { MessageDividerProps } from "@talkjs/components/theming"; */
+import { html, userFriendlyDate } from "@talkjs/react_components/theming";
+/** @import { MessageDividerProps } from "@talkjs/react_components/theming"; */
 
 /** @param {MessageDividerProps} */
 export function MessageDivider({ timestamp, isReadMarker, isDayMarker, t }) {
@@ -8,10 +8,18 @@ export function MessageDivider({ timestamp, isReadMarker, isDayMarker, t }) {
       <div className="t-line" t-side="left">
         <hr />
       </div>
-      ${isDayMarker ? html`<span className="t-day-marker">${userFriendlyDate(timestamp, t)}</span>` : ""}
+      ${isDayMarker
+        ? html`<span className="t-day-marker"
+            >${userFriendlyDate(timestamp, t)}</span
+          >`
+        : ""}
       <div className="t-line" t-side="right">
         <hr />
-        ${isReadMarker ? html`<span className="t-unread-marker"> ${t.MESSAGELIST_NEW_MARKER} </span>` : ""}
+        ${isReadMarker
+          ? html`<span className="t-unread-marker">
+              ${t.MESSAGELIST_NEW_MARKER}
+            </span>`
+          : ""}
       </div>
     </div>
   `;

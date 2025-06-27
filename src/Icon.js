@@ -1,5 +1,5 @@
-import { html } from "@talkjs/components/theming";
-/** @import { IconProps } from "@talkjs/components/theming"; */
+import { html } from "@talkjs/react_components/theming";
+/** @import { IconProps } from "@talkjs/react_components/theming"; */
 
 /** @param {IconProps} props */
 export function Icon({ className = "", type }) {
@@ -164,7 +164,10 @@ function LocationPinIcon({ className }) {
       strokeLinejoin="round"
       viewBox="0 0 24 24"
     >
-      <path fill="none" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+      <path
+        fill="none"
+        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+      ></path>
       <circle fill="none" cx="12" cy="10" r="3"></circle>
     </svg>
   `;
@@ -220,7 +223,10 @@ function SearchIcon({ className }) {
       strokeLinejoin="round"
       viewBox="0 0 24 24"
     >
-      <path fill="none" d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM21.35 21.35 17 17"></path>
+      <path
+        fill="none"
+        d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM21.35 21.35 17 17"
+      ></path>
     </svg>
   `;
 }
@@ -532,7 +538,10 @@ function LocationIcon({ className }) {
       strokeLinejoin="round"
       viewBox="0 0 24 24"
     >
-      <path fill="none" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+      <path
+        fill="none"
+        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+      ></path>
       <circle fill="none" cx="12" cy="10" r="3"></circle>
     </svg>
   `;

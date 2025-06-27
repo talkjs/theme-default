@@ -1,5 +1,5 @@
-import { html } from "@talkjs/components/theming";
-/** @import { MessageActionMenuProps } from "@talkjs/components/theming"; */
+import { html } from "@talkjs/react_components/theming";
+/** @import { MessageActionMenuProps } from "@talkjs/react_components/theming"; */
 
 /** @param {MessageActionMenuProps} props */
 export function MessageActionMenu(props) {
@@ -14,9 +14,19 @@ export function MessageActionMenu(props) {
   return html`
     <div className="t-theme-message-action-menu">
       ${permissions.canReplyToMessage &&
-      html`<button t-action="reply" onClick=${() => setReferencedMessage(message.id)}>${t.REPLY_TO_MESSAGE}</button>`}
+      html`<button
+        t-action="reply"
+        onClick=${() => setReferencedMessage(message.id)}
+      >
+        ${t.REPLY_TO_MESSAGE}
+      </button>`}
       ${permissions.canDeleteMessage &&
-      html`<button t-action="delete" onClick=${() => chatbox.deleteMessage(message.id)}>${t.DELETE_MESSAGE}</button>`}
+      html`<button
+        t-action="delete"
+        onClick=${() => chatbox.deleteMessage(message.id)}
+      >
+        ${t.DELETE_MESSAGE}
+      </button>`}
     </div>
   `;
 }

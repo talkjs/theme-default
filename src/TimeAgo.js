@@ -1,5 +1,5 @@
-import { html, TimeAgoTimer } from "@talkjs/components/theming";
-/** @import * as types from "@talkjs/components/theming"; */
+import { html, TimeAgoTimer } from "@talkjs/react_components/theming";
+/** @import * as types from "@talkjs/react_components/theming"; */
 import { useLayoutEffect, useState } from "react";
 
 /**
@@ -32,7 +32,7 @@ export function TimeAgo({ timestamp, t }) {
 
     const cleanup = timer.onTick((timeAgo) => setTime(timeAgo));
     return cleanup;
-  }, []);
+  }, [t, timestamp]);
 
   return html`
     <span className="t-theme-time-ago">

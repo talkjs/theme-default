@@ -1,5 +1,5 @@
-import { html, formatDuration, Text } from "@talkjs/components/theming";
-/** @import * as types from "@talkjs/components/theming"; */
+import { html, formatDuration, Text } from "@talkjs/react_components/theming";
+/** @import * as types from "@talkjs/react_components/theming"; */
 import { Icon } from "./Icon.js";
 
 /**
@@ -47,7 +47,10 @@ function Content({ referencedMessage, t }) {
     return html`<span>${t.LOCATION}</span>`;
   } else if (firstContentBlock.type === "file") {
     if (firstContentBlock.subtype === "voice") {
-      return html`<span>${t.VOICE_MESSAGE} (${formatDuration(firstContentBlock.duration)})</span>`;
+      return html`<span
+        >${t.VOICE_MESSAGE}
+        (${formatDuration(firstContentBlock.duration)})</span
+      >`;
     } else {
       return html`<span>${firstContentBlock.filename}</span>`;
     }

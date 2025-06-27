@@ -1,5 +1,10 @@
-import { html, getRandomColor, MessageContent, getPhotoUrlWithFallback } from "@talkjs/components/theming";
-/** @import { MessageProps } from "@talkjs/components/theming"; */
+import {
+  html,
+  getRandomColor,
+  MessageContent,
+  getPhotoUrlWithFallback,
+} from "@talkjs/react_components/theming";
+/** @import { MessageProps } from "@talkjs/react_components/theming"; */
 import { Avatar } from "./Avatar.js";
 import { Icon } from "./Icon.js";
 import { ReferencedMessage } from "./ReferencedMessage.js";
@@ -28,15 +33,23 @@ export function Message(props) {
   }
 
   return html`
-    <div className="t-theme-message" t-sender=${senderType} t-message-id=${message.id}>
+    <div
+      className="t-theme-message"
+      t-sender=${senderType}
+      t-message-id=${message.id}
+    >
       <div className="t-message-row">
-        ${sender && html`<${Avatar} photoUrl=${getPhotoUrlWithFallback(sender)} />`}
+        ${sender &&
+        html`<${Avatar} photoUrl=${getPhotoUrlWithFallback(sender)} />`}
 
         <div className="t-message-body">
           <!-- in group chats, show the message sender name in a random color -->
           ${sender &&
           showAuthor &&
-          html`<div className="t-message-sender-name" style=${{ color: getRandomColor(sender.id) }}>
+          html`<div
+            className="t-message-sender-name"
+            style=${{ color: getRandomColor(sender.id) }}
+          >
             ${sender.name}
           </div>`}
           ${showActionMenu &&
@@ -49,7 +62,11 @@ export function Message(props) {
               <${Icon} className="t-action-menu-icon" type="horizontalDots" />
             </button>
           `}
-          ${referencedMessage && html`<${ReferencedMessage} referencedMessage=${referencedMessage} t=${t} />`}
+          ${referencedMessage &&
+          html`<${ReferencedMessage}
+            referencedMessage=${referencedMessage}
+            t=${t}
+          />`}
 
           <${MessageContent} message=${message} currentUser=${currentUser} t=${t} messageStatus=${messageStatus} />
 

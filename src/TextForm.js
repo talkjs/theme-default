@@ -1,5 +1,5 @@
-import { Editor, html } from "@talkjs/components/theming";
-/** @import * as types from "@talkjs/components/theming"; */
+import { Editor, html } from "@talkjs/react_components/theming";
+/** @import * as types from "@talkjs/react_components/theming"; */
 import { Icon } from "./Icon.js";
 
 /**
@@ -16,7 +16,9 @@ export function TextForm({ t, conversation, editor, permissions }) {
   if (conversation.access === "Read") {
     return html`
       <div className="t-theme-text-form">
-        <div className="t-readonly">${t.ENTRYBOX_PLACEHOLDER_CHAT_READONLY}</div>
+        <div className="t-readonly">
+          ${t.ENTRYBOX_PLACEHOLDER_CHAT_READONLY}
+        </div>
       </div>
     `;
   } else if (conversation.access === "None") {

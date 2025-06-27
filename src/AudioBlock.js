@@ -1,5 +1,5 @@
-import { AudioPlayer, formatFilesize, html } from "@talkjs/components/theming";
-/** @import { AudioBlockProps } from "@talkjs/components/theming"; */
+import { AudioPlayer, formatFilesize, html } from "@talkjs/react_components/theming";
+/** @import { AudioBlockProps } from "@talkjs/react_components/theming"; */
 import { Icon } from "./Icon.js";
 
 /** @param {AudioBlockProps} props */
