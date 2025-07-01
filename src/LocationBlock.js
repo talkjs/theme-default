@@ -1,5 +1,5 @@
-import { html, getGoogleMapsUrls } from "@talkjs/react_components/theming";
-/** @import { LocationBlockProps } from "@talkjs/react_components/theming"; */
+import { html, getGoogleMapsUrls } from "@talkjs/react-components/theming";
+/** @import { LocationBlockProps } from "@talkjs/react-components/theming"; */
 
 /** @param {LocationBlockProps} props */
 export function LocationBlock({ block }) {

@@ -1,5 +1,5 @@
-import { html } from "@talkjs/react_components/theming";
-/** @import * as types from "@talkjs/react_components/theming" */
+import { html } from "@talkjs/react-components/theming";
+/** @import * as types from "@talkjs/react-components/theming" */
 import { ConversationImage } from "./ConversationImage.js";
 
 /** @param {types.ChatHeaderProps} props */

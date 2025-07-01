@@ -1,5 +1,5 @@
-import { html, getPhotoUrlWithFallback } from "@talkjs/react_components/theming";
-/** @import * as types from "@talkjs/react_components/theming"; */
+import { html, getPhotoUrlWithFallback } from "@talkjs/react-components/theming";
+/** @import * as types from "@talkjs/react-components/theming"; */
 import { Avatar } from "./Avatar.js";
 import { GroupChatImage } from "./GroupChatImage.js";
 

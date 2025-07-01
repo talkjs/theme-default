@@ -1,4 +1,4 @@
-import { html } from "@talkjs/react_components/theming";
+import { html } from "@talkjs/react-components/theming";
 
 /**
  * @typedef {{

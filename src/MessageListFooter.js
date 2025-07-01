@@ -1,5 +1,5 @@
-import { html, getPhotoUrlWithFallback } from "@talkjs/react_components/theming";
-/** @import { TypingIndicatorProps } from "@talkjs/react_components/theming"; */
+import { html, getPhotoUrlWithFallback } from "@talkjs/react-components/theming";
+/** @import { TypingIndicatorProps } from "@talkjs/react-components/theming"; */
 import { Avatar } from "./Avatar.js";
 
 /** @param {TypingIndicatorProps} props */

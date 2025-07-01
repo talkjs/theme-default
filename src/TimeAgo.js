@@ -1,6 +1,5 @@
-import { html, TimeAgoTimer } from "@talkjs/react_components/theming";
-/** @import * as types from "@talkjs/react_components/theming"; */
-import { useLayoutEffect, useState } from "react";
+import { html, useTimeAgo } from "@talkjs/react-components/theming";
+/** @import * as types from "@talkjs/react-components/theming"; */
 
 /**
  * @typedef {{
@@ -24,15 +23,7 @@ export function TimeAgo({ timestamp, t }) {
     second: "numeric",
   });
 
-  const [time, setTime] = useState({ long: "", short: "" });
-
-  useLayoutEffect(() => {
-    const timer = new TimeAgoTimer(timestamp, t);
-    setTime(timer.currentValue());
-
-    const cleanup = timer.onTick((timeAgo) => setTime(timeAgo));
-    return cleanup;
-  }, [t, timestamp]);
+  const time = useTimeAgo(timestamp, t);
 
   return html`
     <span className="t-theme-time-ago">

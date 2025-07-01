@@ -1,5 +1,5 @@
-import { html } from "@talkjs/react_components/theming";
-/** @import { MessageActionMenuProps } from "@talkjs/react_components/theming"; */
+import { html } from "@talkjs/react-components/theming";
+/** @import { MessageActionMenuProps } from "@talkjs/react-components/theming"; */
 
 /** @param {MessageActionMenuProps} props */
 export function MessageActionMenu(props) {

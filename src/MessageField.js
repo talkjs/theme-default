@@ -1,5 +1,5 @@
-import { html } from "@talkjs/react_components/theming";
-/** @import { MessageFieldProps } from "@talkjs/react_components/theming"; */
+import { html } from "@talkjs/react-components/theming";
+/** @import { MessageFieldProps } from "@talkjs/react-components/theming"; */
 import { ReplyBar } from "./ReplyBar.js";
 import { TextForm } from "./TextForm.js";
 

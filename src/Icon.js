@@ -1,5 +1,5 @@
-import { html } from "@talkjs/react_components/theming";
-/** @import { IconProps } from "@talkjs/react_components/theming"; */
+import { html } from "@talkjs/react-components/theming";
+/** @import { IconProps } from "@talkjs/react-components/theming"; */
 
 /** @param {IconProps} props */
 export function Icon({ className = "", type }) {

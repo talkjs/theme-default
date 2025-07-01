@@ -1,5 +1,5 @@
-import { Editor, html } from "@talkjs/react_components/theming";
-/** @import * as types from "@talkjs/react_components/theming"; */
+import { Editor, html } from "@talkjs/react-components/theming";
+/** @import * as types from "@talkjs/react-components/theming"; */
 import { Icon } from "./Icon.js";
 
 /**

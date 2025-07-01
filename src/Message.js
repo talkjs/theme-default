@@ -3,8 +3,8 @@ import {
   getRandomColor,
   MessageContent,
   getPhotoUrlWithFallback,
-} from "@talkjs/react_components/theming";
-/** @import { MessageProps } from "@talkjs/react_components/theming"; */
+} from "@talkjs/react-components/theming";
+/** @import { MessageProps } from "@talkjs/react-components/theming"; */
 import { Avatar } from "./Avatar.js";
 import { Icon } from "./Icon.js";
 import { ReferencedMessage } from "./ReferencedMessage.js";

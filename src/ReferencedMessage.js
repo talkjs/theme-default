@@ -1,5 +1,5 @@
-import { html, Text, formatDuration } from "@talkjs/react_components/theming";
-/** @import * as types from "@talkjs/react_components/theming"; */
+import { html, Text, formatDuration } from "@talkjs/react-components/theming";
+/** @import * as types from "@talkjs/react-components/theming"; */
 
 /**
  * @typedef {{
