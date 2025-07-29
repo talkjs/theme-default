@@ -6,7 +6,7 @@ import { GroupChatImage } from "./GroupChatImage.js";
 /**
  * @typedef {{
  *   conversation: types.ConversationSnapshot;
- *   participants: types.UserSnapshot[];
+ *   participants: types.ParticipantSnapshot[];
  *   currentUser: types.UserSnapshot;
  * }} Props
  */
@@ -25,11 +25,9 @@ export function ConversationImage({ conversation, participants, currentUser }) {
   if (participants.length === 2) {
     const otherUser =
       participants[0].user.id === currentUser.id
-        ? participants[1]
-        : participants[0];
-    return html`<${Avatar}
-      photoUrl=${getPhotoUrlWithFallback(otherUser.user)}
-    />`;
+        ? participants[1].user
+        : participants[0].user;
+    return html`<${Avatar} photoUrl=${getPhotoUrlWithFallback(otherUser)} />`;
   }
 
   return html`<${GroupChatImage} participants=${participants} />`;

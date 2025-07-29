@@ -3,19 +3,15 @@ import { html } from "@talkjs/react-components/theming";
 /**
  * @typedef {{
  *   photoUrl: string;
- *   float: "left" | "right";
  * }} Props
  */
 
 /** @param {Props} props */
-export function Avatar({ photoUrl, float }) {
+export function Avatar({ photoUrl }) {
   return html`
     <div
       className="t-theme-avatar"
-      style=${{
-      float,
-      backgroundImage: `url(${photoUrl})`,
-    }}
+      style=${{ backgroundImage: `url(${photoUrl})` }}
     />
   `;
 }

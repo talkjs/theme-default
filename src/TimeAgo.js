@@ -5,7 +5,6 @@ import { html, useTimeAgo } from "@talkjs/react-components/theming";
  * @typedef {{
  *   className?: string;
  *   t: types.Translation;
- *   locale: string;
  *   timestamp: number;
  * }} Props
  */

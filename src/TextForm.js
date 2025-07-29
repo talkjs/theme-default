@@ -21,12 +21,6 @@ export function TextForm({ t, conversation, editor, permissions }) {
         </div>
       </div>
     `;
-  } else if (conversation.access === "None") {
-    return html`
-      <div className="t-theme-text-form">
-        <div className="t-readonly">${t.ENTRYBOX_PLACEHOLDER_CHAT_CLOSED}</div>
-      </div>
-    `;
   }
 
   return html`

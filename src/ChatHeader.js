@@ -47,7 +47,7 @@ function Title(props) {
 
 /**
  * @param {types.ParticipantSnapshot[]} participants
- * @param {types.ParticipantSnapshot} currentUser
+ * @param {types.UserSnapshot} currentUser
  */
 function getOtherParticipantNames(participants, currentUser) {
   const otherParticipants = participants.filter(

@@ -1,10 +1,10 @@
 import { html, getPhotoUrlWithFallback } from "@talkjs/react-components/theming";
-/** @import { TypingIndicatorProps } from "@talkjs/react-components/theming"; */
+/** @import { MessageListFooterProps } from "@talkjs/react-components/theming"; */
 import { Avatar } from "./Avatar.js";
 
-/** @param {TypingIndicatorProps} props */
+/** @param {MessageListFooterProps} props */
 export function MessageListFooter(props) {
-  const { typing, t } = props;
+  const { typing } = props;
   // We get many = true, and no users, when there are more than 5 people typing at once.
   const { users, many } = typing;
 
@@ -21,7 +21,7 @@ export function MessageListFooter(props) {
           (user) =>
             html`<${Avatar}
               key=${user.id}
-              photoUrl=${getPhotoUrlWithFallback(user, t)}
+              photoUrl=${getPhotoUrlWithFallback(user)}
             />`,
         );
 
