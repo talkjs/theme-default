@@ -15,6 +15,10 @@
   padding: 0.165em 0px;
 }
 
+.t-theme-referenced-message .t-content a {
+  color: currentColor;
+}
+
 /* The following sections ensure that lists are more compact by displaying them inline */
 .t-theme-referenced-message .t-content ul {
   list-style: inside;

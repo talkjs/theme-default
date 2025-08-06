@@ -29,31 +29,56 @@ export function ChatHeader(props) {
 
 /** @param {types.ChatHeaderProps} props */
 function Title(props) {
-  const { conversation, participants, currentUser } = props;
+  const { conversation } = props;
 
   if (conversation.subject) {
     return html`
       <div className="t-title">${conversation.subject}</div>
       <div className="t-subtitle">
-        ${getOtherParticipantNames(participants, currentUser)}
+        <${Participants} ...${props} />
       </div>
     `;
   } else {
     return html`<div className="t-title">
-      ${getOtherParticipantNames(participants, currentUser)}
+      <${Participants} ...${props} />
     </div>`;
   }
 }
 
-/**
- * @param {types.ParticipantSnapshot[]} participants
- * @param {types.UserSnapshot} currentUser
- */
-function getOtherParticipantNames(participants, currentUser) {
+/** @param {types.ChatHeaderProps} props */
+function Participants({
+  participants,
+  currentUser,
+  isUserConnected,
+  permissions,
+}) {
   const otherParticipants = participants.filter(
     ({ user }) => user.id !== currentUser.id,
   );
   const shownParticipants =
     otherParticipants.length === 0 ? participants : otherParticipants;
-  return shownParticipants.map(({ user }) => user.name).join(", ");
+
+  if (permissions.showOnlineStatus) {
+    return html`
+      <span className="t-participants">
+        ${shownParticipants.map(
+          ({ user }) => html`
+            <span className="t-participant" key=${user.id}>
+              <span>${user.name}</span>
+              <span
+                className="t-online-indicator"
+                t-status=${isUserConnected[user.id] ? "online" : "offline"}
+              ></span>
+            </span>
+          `,
+        )}
+      </span>
+    `;
+  }
+
+  const participantsList = shownParticipants
+    .map(({ user }) => user.name)
+    .join(", ");
+
+  return html`<span className="t-participants">${participantsList}</span>`;
 }

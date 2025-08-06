@@ -11,6 +11,8 @@ const icons = {
   attach: AttachIcon,
   chevronLeft: ChevronLeftIcon,
   left: ChevronLeftIcon,
+  chevronRight: ChevronRightIcon,
+  right: ChevronRightIcon,
   chevronUp: ChevronUpIcon,
   up: ChevronUpIcon,
   chevronDown: ChevronDownIcon,
@@ -53,6 +55,8 @@ function AttachIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <path
         fill="none"
@@ -67,17 +71,33 @@ function ChevronLeftIcon({ className }) {
     <svg
       className=${className}
       xmlns="http://www.w3.org/2000/svg"
-      fill="none"
       stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      width="24px"
+      height="24px"
     >
-      <path
-        d="M41.4157 12.5837C41.6019 12.7695 41.7497 12.9902 41.8505 13.2331C41.9513 13.4761 42.0032 13.7366 42.0032 13.9997C42.0032 14.2627 41.9513 14.5232 41.8505 14.7662C41.7497 15.0092 41.6019 15.2299 41.4157 15.4157L24.8277 31.9997L41.4157 48.5837C41.7912 48.9592 42.0022 49.4686 42.0022 49.9997C42.0022 50.5308 41.7912 51.0401 41.4157 51.4157C41.0401 51.7912 40.5308 52.0022 39.9997 52.0022C39.4686 52.0022 38.9592 51.7912 38.5837 51.4157L20.5837 33.4157C20.3974 33.2299 20.2496 33.0092 20.1488 32.7662C20.048 32.5232 19.9961 32.2627 19.9961 31.9997C19.9961 31.7366 20.048 31.4761 20.1488 31.2331C20.2496 30.9902 20.3974 30.7695 20.5837 30.5837L38.5837 12.5837C38.7695 12.3974 38.9902 12.2496 39.2331 12.1488C39.4761 12.048 39.7366 11.9961 39.9997 11.9961C40.2627 11.9961 40.5232 12.048 40.7662 12.1488C41.0092 12.2496 41.2299 12.3974 41.4157 12.5837Z"
-        fill="currentColor"
-      ></path>
+      <polyline fill="none" points="15 6 9 12 15 18"></polyline>
+    </svg>
+  `;
+}
+
+function ChevronRightIcon({ className }) {
+  return html`
+    <svg
+      className=${className}
+      xmlns="http://www.w3.org/2000/svg"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      viewBox="0 0 24 24"
+      width="24px"
+      height="24px"
+    >
+      <polyline fill="none" points="9 6 15 12 9 18"></polyline>
     </svg>
   `;
 }
@@ -93,6 +113,8 @@ function ChevronUpIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <polyline fill="none" points="18 15 12 9 6 15"></polyline>
     </svg>
@@ -110,6 +132,8 @@ function ChevronDownIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <polyline fill="none" points="6 9 12 15 18 9"></polyline>
     </svg>
@@ -127,6 +151,8 @@ function CloseIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <line x1="18" y1="6" x2="6" y2="18" fill="none"></line>
       <line fill="none" x1="6" y1="6" x2="18" y2="18"></line>
@@ -145,6 +171,8 @@ function EmojiIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <circle fill="none" cx="12" cy="12" r="10"></circle>
       <path fill="none" d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"></path>
@@ -163,6 +191,8 @@ function LocationPinIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <path
         fill="none"
@@ -184,6 +214,8 @@ function MoreIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <path
         d="M32 20C30.9391 20 29.9217 19.5786 29.1716 18.8284C28.4214 18.0783 28 17.0609 28 16C28 14.9391 28.4214 13.9217 29.1716 13.1716C29.9217 12.4214 30.9391 12 32 12C33.0609 12 34.0783 12.4214 34.8284 13.1716C35.5786 13.9217 36 14.9391 36 16C36 17.0609 35.5786 18.0783 34.8284 18.8284C34.0783 19.5786 33.0609 20 32 20ZM32 36C30.9391 36 29.9217 35.5786 29.1716 34.8284C28.4214 34.0783 28 33.0609 28 32C28 30.9391 28.4214 29.9217 29.1716 29.1716C29.9217 28.4214 30.9391 28 32 28C33.0609 28 34.0783 28.4214 34.8284 29.1716C35.5786 29.9217 36 30.9391 36 32C36 33.0609 35.5786 34.0783 34.8284 34.8284C34.0783 35.5786 33.0609 36 32 36ZM28 48C28 49.0609 28.4214 50.0783 29.1716 50.8284C29.9217 51.5786 30.9391 52 32 52C33.0609 52 34.0783 51.5786 34.8284 50.8284C35.5786 50.0783 36 49.0609 36 48C36 46.9391 35.5786 45.9217 34.8284 45.1716C34.0783 44.4214 33.0609 44 32 44C30.9391 44 29.9217 44.4214 29.1716 45.1716C28.4214 45.9217 28 46.9391 28 48Z"
@@ -204,6 +236,8 @@ function PlusIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <line x1="12" y1="5" x2="12" y2="19" fill="none"></line>
       <line fill="none" x1="5" y1="12" x2="19" y2="12"></line>
@@ -222,6 +256,8 @@ function SearchIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <path
         fill="none"
@@ -242,6 +278,8 @@ function SendIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 64 64"
+      height="24px"
+      width="24px"
     >
       <path
         d="M14.4812 8.18108C14.1942 8.03755 13.8727 7.97744 13.5533 8.00758C13.2338 8.03773 12.9292 8.15693 12.6742 8.35162C12.4191 8.54631 12.2238 8.80867 12.1105 9.10886C11.9972 9.40906 11.9704 9.73503 12.0331 10.0497L16.8435 26.6787C16.9332 26.9886 17.1086 27.2669 17.3493 27.4816C17.5901 27.6963 17.8866 27.8387 18.2047 27.8925L37.7138 31.16C38.6327 31.3417 38.6327 32.6583 37.7138 32.84L18.2047 36.1075C17.8866 36.1613 17.5901 36.3037 17.3493 36.5184C17.1086 36.7331 16.9332 37.0114 16.8435 37.3213L12.0331 53.9503C11.9704 54.265 11.9972 54.5909 12.1105 54.8911C12.2238 55.1913 12.4191 55.4537 12.6742 55.6484C12.9292 55.8431 13.2338 55.9623 13.5533 55.9924C13.8727 56.0226 14.1942 55.9625 14.4812 55.8189L59.0538 33.5326C59.3382 33.3901 59.5773 33.1712 59.7444 32.9006C59.9115 32.6299 60 32.3181 60 32C60 31.6819 59.9115 31.3701 59.7444 31.0994C59.5773 30.8288 59.3382 30.6099 59.0538 30.4674L14.4812 8.18108Z"
@@ -262,6 +300,8 @@ function SpinnerIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 64 64"
+      height="24px"
+      width="24px"
     >
       <path
         d="M31.9999 11.1999C26.4834 11.1999 21.1928 13.3913 17.2921 17.2921C13.3913 21.1928 11.1999 26.4834 11.1999 31.9999C11.1999 32.6364 10.947 33.2469 10.497 33.697C10.0469 34.1471 9.43642 34.3999 8.7999 34.3999C8.16338 34.3999 7.55293 34.1471 7.10285 33.697C6.65276 33.2469 6.3999 32.6364 6.3999 31.9999C6.3999 26.9367 7.90132 21.9872 10.7143 17.7773C13.5272 13.5674 17.5254 10.2862 22.2032 8.3486C26.881 6.41099 32.0283 5.90403 36.9942 6.89181C41.9601 7.87959 46.5216 10.3178 50.1018 13.898C53.6821 17.4782 56.1202 22.0397 57.108 27.0056C58.0958 31.9715 57.5888 37.1188 55.6512 41.7966C53.7136 46.4744 50.4324 50.4726 46.2225 53.2855C42.0126 56.0985 37.0631 57.5999 31.9999 57.5999C31.3634 57.5999 30.7529 57.3471 30.3028 56.897C29.8528 56.4469 29.5999 55.8364 29.5999 55.1999C29.5999 54.5634 29.8528 53.9529 30.3028 53.5029C30.7529 53.0528 31.3634 52.7999 31.9999 52.7999C37.5164 52.7999 42.807 50.6085 46.7077 46.7077C50.6085 42.807 52.7999 37.5164 52.7999 31.9999C52.7999 26.4834 50.6085 21.1928 46.7077 17.2921C42.807 13.3913 37.5164 11.1999 31.9999 11.1999V11.1999Z"
@@ -282,6 +322,8 @@ function PlayIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <polygon points="5 3 19 12 5 21 5 3"></polygon>
     </svg>
@@ -299,6 +341,8 @@ function PauseIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <rect x="6" y="4" width="4" height="16"></rect>
       <rect x="14" y="4" width="4" height="16"></rect>
@@ -317,6 +361,8 @@ function UpdownIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 64 64"
+      height="24px"
+      width="24px"
     >
       <path
         d="M 16 25.75 L 19.769531 29.523438 L 31.085938 18.210938 L 42.398438 29.523438 L 46.167969 25.75 L 31.085938 10.667969 Z M 16 25.75 "
@@ -341,6 +387,8 @@ function AddEmojiIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 64 64"
+      height="24px"
+      width="24px"
     >
       <path
         d="m50 2v8h-8v4h8v8h4v-8h8v-4h-8v-8zm-25 14c-12.682 0-23 10.318-23 23s10.318 23 23 23 23-10.318 23-23-10.318-23-23-23zm0 4c10.477 0 19 8.5234 19 19s-8.5234 19-19 19-19-8.5234-19-19 8.5234-19 19-19zm-11 12v5h5v-5zm17 0v5h5v-5zm-18.154 11 0.58276 1.4565a11.943 11.943 0 0 0 11.142 7.5435h0.85938a11.942 11.942 0 0 0 11.142-7.5435l0.58276-1.4565h-4.3086a7.9614 7.9614 0 0 1-7.4158 5h-0.85938a7.9614 7.9614 0 0 1-7.4158-5z"
@@ -361,6 +409,8 @@ function MicrophoneIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 64 64"
+      height="24px"
+      width="24px"
     >
       <path
         fillRule="nonzero"
@@ -423,6 +473,8 @@ function MicIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 64 64"
+      height="24px"
+      width="24px"
     >
       <path
         fillRule="nonzero"
@@ -485,6 +537,8 @@ function StopIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 64 64"
+      height="24px"
+      width="24px"
     >
       <path
         d="M 54.628906 9.371094 C 48.582031 3.328125 40.546875 0 32 0 C 23.453125 0 15.417969 3.328125 9.371094 9.371094 C 3.328125 15.417969 0 23.453125 0 32 C 0 40.546875 3.328125 48.582031 9.371094 54.628906 C 15.417969 60.671875 23.453125 64 32 64 C 40.546875 64 48.582031 60.671875 54.628906 54.628906 C 60.671875 48.582031 64 40.546875 64 32 C 64 23.453125 60.671875 15.417969 54.628906 9.371094 Z M 32 60.042969 C 16.539062 60.042969 3.957031 47.460938 3.957031 32 C 3.957031 16.539062 16.539062 3.957031 32 3.957031 C 47.460938 3.957031 60.042969 16.539062 60.042969 32 C 60.042969 47.460938 47.460938 60.042969 32 60.042969 Z M 32 60.042969 "
@@ -509,6 +563,8 @@ function DownloadIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 34 34"
+      height="24px"
+      width="24px"
     >
       <path
         fillRule="evenodd"
@@ -537,6 +593,8 @@ function LocationIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <path
         fill="none"
@@ -557,6 +615,8 @@ function EmailIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 16 16"
+      height="24px"
+      width="24px"
     >
       <path
         d="M4 3C3.46957 3 2.96086 3.21071 2.58579 3.58579C2.21071 3.96086 2 4.46957 2 5V5.201L8 8.432L14 5.202V5C14 4.46957 13.7893 3.96086 13.4142 3.58579C13.0391 3.21071 12.5304 3 12 3H4Z"
@@ -581,6 +641,8 @@ function MovieIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <polygon points="23 7 16 12 23 17 23 7" fill="none"></polygon>
       <rect x="1" y="5" width="15" height="14" rx="2" ry="2" fill="none"></rect>
@@ -599,6 +661,8 @@ function ImageIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <rect x="3" y="3" fill="none" width="18" height="18" rx="2" ry="2"></rect>
       <circle cx="8.5" cy="8.5" r="1.5"></circle>
@@ -618,6 +682,8 @@ function AttachmentIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <path
         fill="none"
@@ -638,6 +704,8 @@ function VerticalDotsIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 16 16"
+      height="24px"
+      width="24px"
     >
       <circle fill="currentColor" cx="8" cy="4" r="1"></circle>
       <circle fill="currentColor" cx="8" cy="8" r="1"></circle>
@@ -657,6 +725,8 @@ function HorizontalDotsIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 16 16"
+      height="24px"
+      width="24px"
     >
       <circle fill="currentColor" cx="2" cy="8" r="1"></circle>
       <circle fill="currentColor" cx="8" cy="8" r="1"></circle>
@@ -676,6 +746,8 @@ function ReplyIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 365.61 285.686"
+      height="24px"
+      width="24px"
     >
       <path
         opacity="1"
@@ -706,6 +778,8 @@ function BackIcon({ className }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       viewBox="0 0 24 24"
+      height="24px"
+      width="24px"
     >
       <line x1="19" y1="12" x2="5" y2="12"></line>
       <polyline points="12 19 5 12 12 5"></polyline>

@@ -91,7 +91,6 @@
   .t-message-body:has(
     .t-theme-audio-block,
     .t-theme-voice-block,
-    .t-theme-image-block,
     .t-theme-video-block,
     .t-theme-location-block
   ) {
@@ -113,7 +112,9 @@
 
 /* If the first content block type is neither text nor file, add bottom margin to the message sender's name */
 .t-theme-message
-  .t-message-body:not(:has(.t-theme-text-block:first-child, .t-theme-file-block:first-child))
+  .t-message-body:not(
+    :has(.t-theme-text-block:first-child, .t-theme-file-block:first-child)
+  )
   .t-message-sender-name {
   margin-bottom: 0.75em;
 }
