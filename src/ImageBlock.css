@@ -22,8 +22,9 @@
   min-height: inherit;
   max-height: inherit;
   height: auto;
-  width: calc(100% + 2em);
   max-width: min(calc(100% + 2em), calc(var(--img-w) * 1px));
+  /* There is a 1em margin on the message bubble so we make the image 2em too wide and then shift it 1em left */
+  width: calc(100% + 2em);
   transform: translateX(-1em);
   aspect-ratio: var(--img-w) / var(--img-h);
   overflow: hidden;

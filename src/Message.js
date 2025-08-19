@@ -1,5 +1,6 @@
 import {
   html,
+  MenuButton,
   getRandomColor,
   MessageContent,
   getPhotoUrlWithFallback,
@@ -9,11 +10,19 @@ import { Avatar } from "./Avatar.js";
 import { Icon } from "./Icon.js";
 import { ReferencedMessage } from "./ReferencedMessage.js";
 import { TimeAgo } from "./TimeAgo.js";
+import { MessageActionMenu } from "./MessageActionMenu.js";
 
 /** @param {MessageProps} props */
 export function Message(props) {
-  const { message, participants, permissions, currentUser, chatbox, t, messageActionMenuAnchorRef, messageStatus } =
-    props;
+  const {
+    message,
+    messageStatus,
+    participants,
+    permissions,
+    currentUser,
+    chatbox,
+    t,
+  } = props;
 
   const isGroupChat = participants.length >= 3;
   const sender = message.sender;
@@ -21,7 +30,9 @@ export function Message(props) {
   const isMe = sender?.id === currentUser.id;
   const showAuthor = !isMe && isGroupChat;
   const referencedMessage = message.referencedMessage;
-  const showActionMenu = messageStatus !== "sending" && (permissions.canReplyToMessage || permissions.canDeleteMessage);
+  const showActionMenu =
+    messageStatus !== "sending" &&
+    (permissions.canReplyToMessage || permissions.canDeleteMessage);
 
   let senderType;
   if (!sender) {
@@ -54,13 +65,14 @@ export function Message(props) {
           </div>`}
           ${showActionMenu &&
           html`
-            <button
-              className="t-message-action-menu-trigger"
-              onClick=${() => chatbox.openMessageActionMenu(message.id)}
-              ref=${messageActionMenuAnchorRef}
+            <${MenuButton}
+              menuComponent=${MessageActionMenu}
+              menuProps=${{ message, permissions, chatbox, t }}
+              className="t-message-action-menu-button"
+              aria-label="Message actions"
             >
               <${Icon} className="t-action-menu-icon" type="horizontalDots" />
-            </button>
+            </${MenuButton}>
           `}
           ${referencedMessage &&
           html`<${ReferencedMessage}
@@ -68,7 +80,12 @@ export function Message(props) {
             t=${t}
           />`}
 
-          <${MessageContent} message=${message} currentUser=${currentUser} t=${t} messageStatus=${messageStatus} />
+          <${MessageContent}
+            message=${message}
+            currentUser=${currentUser}
+            t=${t}
+            messageStatus=${messageStatus}
+          />
 
           <div className="t-message-status">
             <${TimeAgo} timestamp=${message.createdAt} t=${t} />

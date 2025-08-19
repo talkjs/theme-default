@@ -26,8 +26,12 @@ export function TimeAgo({ timestamp, t }) {
 
   return html`
     <span className="t-theme-time-ago">
-      <span role="time" title=${absoluteDateTimeString} aria-label=${time.long}>
-        <span aria-hidden="true">${time.short}</span>
+      <span
+        role="time"
+        title=${absoluteDateTimeString}
+        aria-description=${time.long}
+      >
+        ${time.short}
       </span>
     </span>
   `;

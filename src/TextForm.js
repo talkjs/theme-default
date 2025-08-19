@@ -12,7 +12,7 @@ import { Icon } from "./Icon.js";
  */
 
 /** @param {Props} props */
-export function TextForm({ t, conversation, editor, permissions }) {
+export function TextForm({ t, conversation, editor, permissions, device }) {
   if (conversation.access === "Read") {
     return html`
       <div className="t-theme-text-form">
@@ -50,6 +50,17 @@ export function TextForm({ t, conversation, editor, permissions }) {
             onClick=${() => editor.attachFile()}
           >
             <${Icon} type="attach" />
+          </button>`}
+          ${device.supportsEmojiPicker &&
+          !device.isMobile &&
+          html`<button
+            className="t-emoji-button"
+            t-kind="icon-button"
+            aria-label="Insert an emoji"
+            title="Insert an emoji"
+            onClick=${() => editor.toggleEmojiPicker()}
+          >
+            <${Icon} type=${editor.showEmojiPicker ? "close" : "emoji"} />
           </button>`}
         </div>
       </div>

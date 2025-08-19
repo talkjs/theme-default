@@ -1,32 +1,25 @@
-import { html } from "@talkjs/react-components/theming";
+import { html, MenuItem } from "@talkjs/react-components/theming";
 /** @import { MessageActionMenuProps } from "@talkjs/react-components/theming"; */
 
 /** @param {MessageActionMenuProps} props */
 export function MessageActionMenu(props) {
   const { message, permissions, chatbox, t } = props;
 
-  /** @param {string} messageId */
-  function setReferencedMessage(messageId) {
-    chatbox.setReferencedMessage(messageId);
-    chatbox.closeMessageActionMenu();
-  }
+  const doReply = () => chatbox.setReferencedMessage(message.id);
+  const doDelete = () => chatbox.deleteMessage(message.id);
 
-  return html`
-    <div className="t-theme-message-action-menu">
-      ${permissions.canReplyToMessage &&
-      html`<button
-        t-action="reply"
-        onClick=${() => setReferencedMessage(message.id)}
-      >
-        ${t.REPLY_TO_MESSAGE}
-      </button>`}
-      ${permissions.canDeleteMessage &&
-      html`<button
-        t-action="delete"
-        onClick=${() => chatbox.deleteMessage(message.id)}
-      >
-        ${t.DELETE_MESSAGE}
-      </button>`}
-    </div>
-  `;
+  return html` <div className="t-theme-message-action-menu">
+    ${permissions.canReplyToMessage &&
+    html`
+        <${MenuItem} className="t-menu-item" onSelect=${doReply}>
+          ${t.REPLY_TO_MESSAGE}
+        </${MenuItem}>
+      `}
+    ${permissions.canDeleteMessage &&
+    html`
+        <${MenuItem} className="t-menu-item t-danger" onSelect=${doDelete}>
+          ${t.DELETE_MESSAGE}
+        </${MenuItem}>
+      `}
+  </div>`;
 }

@@ -1,7 +1,14 @@
+.t-theme-message-field {
+  display: flex;
+  flex-direction: column;
+
+  /* cap height for when the emoji picker is expanded and the chatbox is small */
+  max-height: calc(100% - 100px);
+}
+
 .t-theme-message-field .t-wrapper {
   flex-shrink: 0;
   position: relative;
-  order: 2;
   padding: 16px;
   color: #111;
   font-size: 16px;
