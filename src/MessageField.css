@@ -1,7 +1,9 @@
 .t-theme-message-field {
   display: flex;
   flex-direction: column;
+}
 
+.t-theme-message-field[t-mode="send"] {
   /* cap height for when the emoji picker is expanded and the chatbox is small */
   max-height: calc(100% - 100px);
 }
