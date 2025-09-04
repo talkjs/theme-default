@@ -13,3 +13,10 @@ export { LocationBlock } from "./LocationBlock.js";
 export { TextBlock } from "./TextBlock.js";
 export { VideoBlock } from "./VideoBlock.js";
 export { VoiceBlock } from "./VoiceBlock.js";
+
+export { Avatar } from "./Avatar.js";
+export { ConversationImage } from "./ConversationImage.js";
+export { GroupChatImage } from "./GroupChatImage.js";
+export { ReferencedMessage } from "./ReferencedMessage.js";
+export { ReplyBar } from "./ReplyBar.js";
+export { TimeAgo } from "./TimeAgo.js";

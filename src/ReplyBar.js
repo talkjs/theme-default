@@ -1,22 +1,15 @@
 import { html, formatDuration, Text } from "@talkjs/react-components/theming";
-/** @import * as types from "@talkjs/react-components/theming"; */
-import { Icon } from "./Icon.js";
+/** @import { ReplyBarProps } from "@talkjs/react-components/theming"; */
 
-/**
- * @typedef {{
- *   chatbox: types.Chatbox;
- *   referencedMessage: types.MessageSnapshot;
- *   t: types.Translation;
- * }} Props
- */
-
-/** @param {Props} props */
+/** @param {ReplyBarProps} props */
 export function ReplyBar(props) {
-  const { chatbox, referencedMessage, t } = props;
+  const { common, referencedMessage } = props;
+  const { chatbox, t, theme } = common;
+  const { Icon } = theme;
 
   return html`
     <div className="t-theme-reply-bar">
-      <${Icon} className="t-reply-icon" type="reply" />
+      <${Icon} className="t-reply-icon" type="reply" common=${common} />
 
       <div className="t-body">
         <div className="t-sender-name">${referencedMessage.sender.name}</div>
@@ -31,14 +24,15 @@ export function ReplyBar(props) {
         aria-label=${t.REPLY_MODE_LEAVE_ARIA_LABEL}
         onClick=${() => chatbox.setReferencedMessage(null)}
       >
-        <${Icon} className="t-close-icon" type="close" />
+        <${Icon} className="t-close-icon" type="close" common=${common} />
       </button>
     </div>
   `;
 }
 
-/** @param {Props} props */
-function Content({ referencedMessage, t }) {
+/** @param {ReplyBarProps} props */
+function Content({ referencedMessage, common }) {
+  const { t } = common;
   const firstContentBlock = referencedMessage.content[0];
 
   if (firstContentBlock.type === "text") {

@@ -1,20 +1,12 @@
 import { html, EmojiPicker, Editor } from "@talkjs/react-components/theming";
 /** @import { MessageFieldProps } from "@talkjs/react-components/theming"; */
-import { ReplyBar } from "./ReplyBar.js";
-import { Icon } from "./Icon.js";
 
 /** @param {MessageFieldProps} props */
 export function MessageField(props) {
-  const {
-    conversation,
-    chatbox,
-    referencedMessage,
-    t,
-    editor,
-    permissions,
-    device,
-    editMessageId,
-  } = props;
+  const { common, referencedMessage, editor, permissions, editMessageId } =
+    props;
+  const { chatbox, device, conversation, t, theme } = common;
+  const { ReplyBar, Icon } = theme;
 
   const mode = editMessageId ? "edit" : "send";
 
@@ -36,9 +28,8 @@ export function MessageField(props) {
       ${editor.showEmojiPicker && html`<${EmojiPicker} colorScheme="light" />`}
       ${referencedMessage &&
       html`<${ReplyBar}
-        chatbox=${chatbox}
+        common=${common}
         referencedMessage=${referencedMessage}
-        t=${t}
       />`}
 
       <div className="t-wrapper">
@@ -63,7 +54,7 @@ export function MessageField(props) {
                   title=${t.UPLOAD_SHARE_LOCATION}
                   onClick=${() => editor.shareLocation()}
                 >
-                  <${Icon} type="locationPin" />
+                  <${Icon} type="locationPin" common=${common} />
                 </button>`}
                 ${showAttachmentButton &&
                 html`<button
@@ -73,7 +64,7 @@ export function MessageField(props) {
                   title=${t.UPLOAD_SEND_FILE}
                   onClick=${() => editor.attachFile()}
                 >
-                  <${Icon} type="attach" />
+                  <${Icon} type="attach" common=${common} />
                 </button>`}
                 ${showEmojiButton &&
                 html`<button
@@ -83,7 +74,10 @@ export function MessageField(props) {
                   title="Insert an emoji"
                   onClick=${() => editor.toggleEmojiPicker()}
                 >
-                  <${Icon} type=${editor.showEmojiPicker ? "close" : "emoji"} />
+                  <${Icon}
+                    type=${editor.showEmojiPicker ? "close" : "emoji"}
+                    common=${common}
+                  />
                 </button>`}
               </div>
             </div>
@@ -98,7 +92,7 @@ export function MessageField(props) {
                 title=${t.SEND_BUTTON_TEXT}
                 onClick=${() => editor.send()}
               >
-                <${Icon} type="send" />
+                <${Icon} type="send" common=${common} />
               </button>
             </div>
           `}

@@ -1,25 +1,28 @@
 import { html, getPhotoUrlWithFallback } from "@talkjs/react-components/theming";
-/** @import * as types from "@talkjs/react-components/theming"; */
+/** @import { GroupChatImageProps } from "@talkjs/react-components/theming"; */
 
-/**
- * @typedef {{
- *   participants: types.ParticipantSnapshot[];
- * }} Props
- */
-
-/** @param {Props} props */
-export function GroupChatImage({ participants }) {
+/** @param {GroupChatImageProps} props */
+export function GroupChatImage({ common }) {
+  const { participants } = common;
   const counterSize = 22;
 
   return html`
     <div className="t-theme-group-chat-image">
       <div
         className="t-mini-avatar"
-        style=${{ backgroundImage: `url("${getPhotoUrlWithFallback(participants[0].user)}")` }}
+        style=${{
+          backgroundImage: `url("${getPhotoUrlWithFallback(
+            participants[0].user,
+          )}")`,
+        }}
       ></div>
       <div
         className="t-mini-avatar"
-        style=${{ backgroundImage: `url("${getPhotoUrlWithFallback(participants[1].user)}")` }}
+        style=${{
+          backgroundImage: `url("${getPhotoUrlWithFallback(
+            participants[1].user,
+          )}")`,
+        }}
       ></div>
       ${participants.length > 2 &&
       html`<svg

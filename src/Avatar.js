@@ -1,12 +1,7 @@
 import { html } from "@talkjs/react-components/theming";
+/** @import { AvatarProps } from "@talkjs/react-components/theming"; */
 
-/**
- * @typedef {{
- *   photoUrl: string;
- * }} Props
- */
-
-/** @param {Props} props */
+/** @param {AvatarProps} props */
 export function Avatar({ photoUrl }) {
   return html`
     <div

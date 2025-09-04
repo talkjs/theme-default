@@ -3,7 +3,8 @@ import { html, MenuItem } from "@talkjs/react-components/theming";
 
 /** @param {MessageActionMenuProps} props */
 export function MessageActionMenu(props) {
-  const { message, permissions, chatbox, t } = props;
+  const { message, permissions, common } = props;
+  const { chatbox, t } = common;
 
   const doReply = () => chatbox.setReferencedMessage(message.id);
   const doEdit = () => chatbox.setEditing(message.id);

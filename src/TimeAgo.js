@@ -1,16 +1,9 @@
 import { html, useTimeAgo } from "@talkjs/react-components/theming";
-/** @import * as types from "@talkjs/react-components/theming"; */
+/** @import { TimeAgoProps } from "@talkjs/react-components/theming"; */
 
-/**
- * @typedef {{
- *   className?: string;
- *   t: types.Translation;
- *   timestamp: number;
- * }} Props
- */
-
-/** @param {Props} props */
-export function TimeAgo({ timestamp, t }) {
+/** @param {TimeAgoProps} props */
+export function TimeAgo({ timestamp, common }) {
+  const { t } = common;
   // Turns `timestamp` into a long, informative, locale specific datetime string
   const absoluteDateTimeString = new Date(timestamp).toLocaleString(t.locale, {
     weekday: "short",

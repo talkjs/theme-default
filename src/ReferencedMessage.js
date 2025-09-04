@@ -1,14 +1,7 @@
 import { html, Text, formatDuration } from "@talkjs/react-components/theming";
-/** @import * as types from "@talkjs/react-components/theming"; */
+/** @import { ReferencedMessageProps } from "@talkjs/react-components/theming"; */
 
-/**
- * @typedef {{
- *   referencedMessage: types.ReferencedMessageSnapshot
- *   t: types.Translation;
- * }} Props
- */
-
-/** @param {Props} props */
+/** @param {ReferencedMessageProps} props */
 export function ReferencedMessage(props) {
   const { referencedMessage } = props;
 
@@ -22,18 +15,18 @@ export function ReferencedMessage(props) {
   `;
 }
 
-/** @param {Props} props */
-function Content({ referencedMessage, t }) {
+/** @param {ReferencedMessageProps} props */
+function Content({ referencedMessage, common }) {
   const firstContentBlock = referencedMessage.content[0];
 
   if (firstContentBlock.type === "text") {
     return html`<${Text} block=${firstContentBlock} />`;
   } else if (firstContentBlock.type === "location") {
-    return html`<span>${t.LOCATION}</span>`;
+    return html`<span>${common.t.LOCATION}</span>`;
   } else if (firstContentBlock.type === "file") {
     if (firstContentBlock.subtype === "voice") {
       return html`<span
-        >${t.VOICE_MESSAGE}
+        >${common.t.VOICE_MESSAGE}
         (${formatDuration(firstContentBlock.duration)})</span
       >`;
     } else {

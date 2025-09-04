@@ -1,10 +1,10 @@
 import { html } from "@talkjs/react-components/theming";
-/** @import * as types from "@talkjs/react-components/theming" */
-import { ConversationImage } from "./ConversationImage.js";
+/** @import { ChatHeaderProps } from "@talkjs/react-components/theming" */
 
-/** @param {types.ChatHeaderProps} props */
+/** @param {ChatHeaderProps} props */
 export function ChatHeader(props) {
-  const { currentUser, conversation, participants } = props;
+  const { conversation, participants, theme } = props.common;
+  const { ConversationImage } = theme;
 
   return html`
     <div className="t-theme-chat-header">
@@ -13,8 +13,8 @@ export function ChatHeader(props) {
           <div className="t-image">
             <${ConversationImage}
               conversation=${conversation}
-              currentUser=${currentUser}
               participants=${participants}
+              common=${props.common}
             />
           </div>
 
@@ -27,13 +27,13 @@ export function ChatHeader(props) {
   `;
 }
 
-/** @param {types.ChatHeaderProps} props */
+/** @param {ChatHeaderProps} props */
 function Title(props) {
-  const { conversation } = props;
+  const { common } = props;
 
-  if (conversation.subject) {
+  if (common.conversation.subject) {
     return html`
-      <div className="t-title">${conversation.subject}</div>
+      <div className="t-title">${common.conversation.subject}</div>
       <div className="t-subtitle">
         <${Participants} ...${props} />
       </div>
@@ -45,15 +45,11 @@ function Title(props) {
   }
 }
 
-/** @param {types.ChatHeaderProps} props */
-function Participants({
-  participants,
-  currentUser,
-  isUserConnected,
-  permissions,
-}) {
+/** @param {ChatHeaderProps} props */
+function Participants({ common, isUserConnected, permissions }) {
+  const { participants } = common;
   const otherParticipants = participants.filter(
-    ({ user }) => user.id !== currentUser.id,
+    ({ user }) => user.id !== common.currentUser.id,
   );
   const shownParticipants =
     otherParticipants.length === 0 ? participants : otherParticipants;

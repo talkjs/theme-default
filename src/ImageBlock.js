@@ -1,9 +1,10 @@
 import { html, formatFilesize } from "@talkjs/react-components/theming";
 /** @import { ImageBlockProps } from "@talkjs/react-components/theming"; */
-import { Icon } from "./Icon.js";
 
 /** @param {ImageBlockProps} props */
-export function ImageBlock({ block, downloadUrl }) {
+export function ImageBlock({ block, downloadUrl, common }) {
+  const { Icon } = common.theme;
+
   const width = block.width || 1;
   const height = block.height || 1;
   const style = { "--img-w": width, "--img-h": height };
@@ -22,7 +23,7 @@ export function ImageBlock({ block, downloadUrl }) {
       </a>
 
       <a href=${downloadUrl} className="t-body-text">
-        <${Icon} className="download-icon" type="download" />
+        <${Icon} className="download-icon" type="download" common=${common} />
         <span>${block.filename}</span>
         <span className="t-filesize"> (${formatFilesize(block.size)})</span>
       </a>

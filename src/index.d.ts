@@ -16,3 +16,10 @@ export declare const LocationBlock = Theme["LocationBlock"];
 export declare const TextBlock = Theme["TextBlock"];
 export declare const VoiceBlock = Theme["VoiceBlock"];
 export declare const VideoBlock = Theme["VideoBlock"];
+
+export declare const Avatar = Theme["Avatar"];
+export declare const ConversationImage = Theme["ConversationImage"];
+export declare const GroupChatImage = Theme["GroupChatImage"];
+export declare const ReferencedMessage = Theme["ReferencedMessage"];
+export declare const ReplyBar = Theme["ReplyBar"];
+export declare const TimeAgo = Theme["TimeAgo"];

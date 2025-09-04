@@ -6,23 +6,12 @@ import {
   getPhotoUrlWithFallback,
 } from "@talkjs/react-components/theming";
 /** @import { MessageProps } from "@talkjs/react-components/theming"; */
-import { Avatar } from "./Avatar.js";
-import { Icon } from "./Icon.js";
-import { ReferencedMessage } from "./ReferencedMessage.js";
-import { TimeAgo } from "./TimeAgo.js";
-import { MessageActionMenu } from "./MessageActionMenu.js";
 
 /** @param {MessageProps} props */
 export function Message(props) {
-  const {
-    message,
-    messageStatus,
-    participants,
-    permissions,
-    currentUser,
-    chatbox,
-    t,
-  } = props;
+  const { message, messageStatus, permissions, common } = props;
+  const { currentUser, theme, participants } = common;
+  const { Avatar, Icon, ReferencedMessage, TimeAgo, MessageActionMenu } = theme;
 
   const isGroupChat = participants.length >= 3;
   const sender = message.sender;
@@ -51,7 +40,10 @@ export function Message(props) {
     >
       <div className="t-message-row">
         ${sender &&
-        html`<${Avatar} photoUrl=${getPhotoUrlWithFallback(sender)} />`}
+        html`<${Avatar}
+          photoUrl=${getPhotoUrlWithFallback(sender)}
+          common=${common}
+        />`}
 
         <div className="t-message-body">
           <!-- in group chats, show the message sender name in a random color -->
@@ -67,28 +59,27 @@ export function Message(props) {
           html`
             <${MenuButton}
               menuComponent=${MessageActionMenu}
-              menuProps=${{ message, permissions, chatbox, t }}
+              menuProps=${{ message, permissions, common }}
               className="t-message-action-menu-button"
               aria-label="Message actions"
             >
-              <${Icon} className="t-action-menu-icon" type="horizontalDots" />
+              <${Icon} className="t-action-menu-icon" type="horizontalDots" common=${common} />
             </${MenuButton}>
           `}
           ${referencedMessage &&
           html`<${ReferencedMessage}
             referencedMessage=${referencedMessage}
-            t=${t}
+            common=${common}
           />`}
 
           <${MessageContent}
+            common=${common}
             message=${message}
-            currentUser=${currentUser}
-            t=${t}
             messageStatus=${messageStatus}
           />
 
           <div className="t-message-status">
-            <${TimeAgo} timestamp=${message.createdAt} t=${t} />
+            <${TimeAgo} timestamp=${message.createdAt} common=${common} />
             <${StatusTick} ...${props} />
           </div>
         </div>
@@ -98,11 +89,17 @@ export function Message(props) {
 }
 
 /** @param {MessageProps} props */
-function StatusTick({ messageStatus }) {
+function StatusTick({ messageStatus, common }) {
+  const { Icon } = common.theme;
+
   if (messageStatus === "sending") {
     return html`
       <span className="t-status-icon">
-        <${Icon} type="spinner" className="t-message-loading-spinner" />
+        <${Icon}
+          type="spinner"
+          className="t-message-loading-spinner"
+          common=${common}
+        />
       </span>
     `;
   }
