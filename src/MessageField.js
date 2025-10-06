@@ -1,4 +1,10 @@
-import { html, EmojiPicker, Editor } from "@talkjs/react-components/theming";
+import {
+  html,
+  EmojiPicker,
+  Editor,
+  EmojiSuggestBar,
+  MentionSuggestList,
+} from "@talkjs/react-components/theming";
 /** @import { MessageFieldProps } from "@talkjs/react-components/theming"; */
 
 /** @param {MessageFieldProps} props */
@@ -26,6 +32,9 @@ export function MessageField(props) {
   return html`
     <div className="t-theme-message-field" t-mode=${mode}>
       ${editor.showEmojiPicker && html`<${EmojiPicker} colorScheme="light" />`}
+      <${EmojiSuggestBar} className="t-theme-emoji-suggest-bar" />
+      <${MentionSuggestList} className="t-theme-mention-suggest-list" />
+
       ${referencedMessage &&
       html`<${ReplyBar}
         common=${common}

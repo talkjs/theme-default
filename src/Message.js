@@ -80,7 +80,8 @@ export function Message(props) {
 
           <div className="t-message-status">
             <${TimeAgo} timestamp=${message.createdAt} common=${common} />
-            <${StatusTick} ...${props} />
+            ${senderType == "currentUser" &&
+            html`<${StatusTick} ...${props} />`}
           </div>
         </div>
       </div>

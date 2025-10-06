@@ -12,6 +12,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding: 0.165rem 0px
 }
 
 .t-theme-reply-bar .t-close-button {
@@ -47,4 +48,17 @@
   height: 1.428em;
   min-width: 1.428em;
   min-height: 1.428em;
+}
+
+.t-theme-reply-bar .t-mention {
+  line-height: 1.5;
+  background-color: rgba(200, 200, 200, 0.5);
+  color: inherit;
+  margin: 0;
+  border-radius: 9999px;
+  padding: 0.25rem 0.45rem;
+}
+.t-theme-reply-bar .t-mention[t-is-current-user] {
+  font-weight: bold;
+  background-color: rgba(200, 200, 200, 0.9);
 }

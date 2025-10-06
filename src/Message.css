@@ -15,7 +15,8 @@
   margin-left: 3em;
 }
 
-.t-theme-message:not(:last-child) .t-theme-avatar {
+.t-theme-message:not(:last-child) .t-theme-avatar,
+.t-theme-message:not(:last-child) .t-message-sender-name {
   display: none;
 }
 
@@ -289,4 +290,29 @@
 .t-message-action-menu-button .t-action-menu-icon {
   width: 1.143em;
   height: 1.143em;
+}
+
+.t-theme-message .t-mention {
+  line-height: 1.5;
+  color: inherit;
+  margin: 0;
+  border-radius: 9999px;
+  padding: 0.25rem 0.45rem;
+}
+.t-theme-message .t-mention[t-is-current-user] {
+  font-weight: bold;
+}
+
+.t-theme-message[t-sender="currentUser"] .t-mention {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.t-theme-message[t-sender="currentUser"] .t-mention[t-is-current-user] {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.t-theme-message[t-sender="other"] .t-mention {
+  background-color: rgba(220, 220, 220, 0.5);
+}
+.t-theme-message[t-sender="other"] .t-mention[t-is-current-user] {
+  background-color: rgba(220, 220, 220, 0.9);
 }
