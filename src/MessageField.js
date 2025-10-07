@@ -31,7 +31,12 @@ export function MessageField(props) {
 
   return html`
     <div className="t-theme-message-field" t-mode=${mode}>
-      ${editor.showEmojiPicker && html`<${EmojiPicker} colorScheme="light" />`}
+      ${editor.showEmojiPicker &&
+      html`
+        <div className="t-emoji-picker-wrapper">
+          <${EmojiPicker} colorScheme="light" />
+        </div>
+      `}
       <${EmojiSuggestBar} className="t-theme-emoji-suggest-bar" />
       <${MentionSuggestList} className="t-theme-mention-suggest-list" />
 

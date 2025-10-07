@@ -2,8 +2,8 @@ import { html, getPhotoUrlWithFallback } from "@talkjs/react-components/theming"
 /** @import { ConversationImageProps } from "@talkjs/react-components/theming"; */
 
 /** @param {ConversationImageProps} props */
-export function ConversationImage({ common }) {
-  const { currentUser, conversation, participants, theme } = common;
+export function ConversationImage({ common, conversation, participants }) {
+  const { currentUser, theme } = common;
   const { Avatar, GroupChatImage } = theme;
 
   if (conversation.photoUrl) {

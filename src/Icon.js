@@ -383,17 +383,34 @@ function AddEmojiIcon({ className }) {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      viewBox="0 0 64 64"
-      height="24px"
-      width="24px"
+      viewBox="-2 -2 28 28"
+      height="26"
+      width="26"
+      style=${{ overflow: "visible" }}
     >
-      <path
-        d="m50 2v8h-8v4h8v8h4v-8h8v-4h-8v-8zm-25 14c-12.682 0-23 10.318-23 23s10.318 23 23 23 23-10.318 23-23-10.318-23-23-23zm0 4c10.477 0 19 8.5234 19 19s-8.5234 19-19 19-19-8.5234-19-19 8.5234-19 19-19zm-11 12v5h5v-5zm17 0v5h5v-5zm-18.154 11 0.58276 1.4565a11.943 11.943 0 0 0 11.142 7.5435h0.85938a11.942 11.942 0 0 0 11.142-7.5435l0.58276-1.4565h-4.3086a7.9614 7.9614 0 0 1-7.4158 5h-0.85938a7.9614 7.9614 0 0 1-7.4158-5z"
-        fill="currentColor"
-      ></path>
+      <circle fill="none" cx="12" cy="12" r="10"></circle>
+      <path fill="none" d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"></path>
+      <line
+        x1="25"
+        y1="-1"
+        x2="25"
+        y2="5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      ></line>
+      <line
+        x1="28"
+        y1="2"
+        x2="22"
+        y2="2"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      ></line>
     </svg>
   `;
 }

@@ -2,8 +2,7 @@ import { html, getPhotoUrlWithFallback } from "@talkjs/react-components/theming"
 /** @import { GroupChatImageProps } from "@talkjs/react-components/theming"; */
 
 /** @param {GroupChatImageProps} props */
-export function GroupChatImage({ common }) {
-  const { participants } = common;
+export function GroupChatImage({ participants }) {
   const counterSize = 22;
 
   return html`

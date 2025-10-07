@@ -5,6 +5,7 @@ export { MessageField } from "./MessageField.js";
 export { Icon } from "./Icon.js";
 export { MessageDivider } from "./MessageDivider.js";
 export { MessageListFooter } from "./MessageListFooter.js";
+export { CompactMessageContent } from "./CompactMessageContent.js";
 
 export { AudioBlock } from "./AudioBlock.js";
 export { FileBlock } from "./FileBlock.js";
@@ -20,3 +21,5 @@ export { GroupChatImage } from "./GroupChatImage.js";
 export { ReferencedMessage } from "./ReferencedMessage.js";
 export { ReplyBar } from "./ReplyBar.js";
 export { TimeAgo } from "./TimeAgo.js";
+
+export { ConversationListItem } from "./ConversationListItem.js";

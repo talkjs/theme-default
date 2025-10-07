@@ -7,21 +7,12 @@
   margin-top: 1.35em;
 }
 
-.t-theme-message[t-sender="currentUser"]:not(:last-child) {
-  margin-right: 3em;
-}
-
-.t-theme-message[t-sender="other"]:not(:last-child) {
-  margin-left: 3em;
-}
-
-.t-theme-message:not(:last-child) .t-theme-avatar,
 .t-theme-message:not(:last-child) .t-message-sender-name {
   display: none;
 }
 
-.t-theme-message:last-child .t-theme-avatar {
-  display: block;
+.t-theme-message:not(:last-child) .t-theme-avatar {
+  visibility: hidden;
 }
 
 .t-theme-message[t-sender="system"] {
@@ -40,6 +31,7 @@
 .t-theme-message .t-message-row {
   display: flex;
   align-items: center;
+  gap: 0.5em;
 }
 
 .t-theme-message[t-sender="currentUser"] .t-message-row {
@@ -74,13 +66,6 @@
   border-color: #007df9;
   background-color: #007df9;
   color: #fff;
-  /* Space between avatar and the message */
-  margin-right: 0.5em;
-}
-
-.t-theme-message[t-sender="other"] .t-message-body {
-  /* Space between avatar and the message */
-  margin-left: 0.5em;
 }
 
 .t-theme-message .t-message-body .t-message-content {
@@ -263,33 +248,102 @@
 
 .t-theme-message .t-status-icon {
   margin-left: 0.25em;
-  letter-spacing: -0.3rem;
+  letter-spacing: -0.3em;
 
   min-width: 1em;
 }
 
-.t-theme-message .t-message-action-menu-button {
+.t-theme-message .t-message-row > button {
   border: none;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  border-radius: 9999px;
+  border: 0;
   color: inherit;
+  opacity: 0.75;
   cursor: pointer;
-  position: absolute;
-  top: 0.58em;
-  right: 0.58em;
-  margin: -0.08em;
-  z-index: 1;
   font-size: 120%;
   background: inherit;
   visibility: hidden;
 }
 
-.t-theme-message .t-message-row:hover .t-message-action-menu-button,
-.t-theme-message .t-message-row:focus-within .t-message-action-menu-button {
+.t-theme-message .t-message-row > button:hover,
+.t-theme-message .t-message-row > button:focus {
+  color: #0761d1;
+}
+
+.t-theme-message .t-message-row > buutton:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(0 125 249 / 50%);
+}
+
+.t-theme-message .t-message-row:hover > button,
+.t-theme-message .t-message-row:focus-within > button {
   visibility: visible;
 }
 
 .t-message-action-menu-button .t-action-menu-icon {
   width: 1.143em;
   height: 1.143em;
+}
+
+.t-theme-message .t-emoji-reactions {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+}
+
+.t-theme-message[t-sender="currentUser"] .t-emoji-reactions {
+  justify-content: flex-end;
+  margin-right: 3.5em;
+}
+
+.t-theme-message[t-sender="other"] .t-emoji-reactions {
+  margin-left: 3.5em;
+}
+
+.t-theme-message .t-reaction-button {
+  border: 1px solid transparent;
+  margin: 0;
+  padding: 0.2em 0.55em;
+  border-radius: 8em;
+  background-color: #e8ecee;
+}
+
+.t-theme-message .t-reaction-button[t-active] {
+  background: #1e60e1;
+  border: 1px solid transparent;
+  color: white;
+}
+.t-theme-message .t-reaction-button[t-active]:hover {
+  background: #1e60e1;
+  border: 1px solid transparent;
+}
+
+.t-theme-message .t-reaction-button span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.t-theme-message .t-reaction-button .t-emoji {
+  font-size: 1.25eem;
+}
+
+.t-theme-message .t-reaction-button .t-num-reactions {
+  padding-left: 0.25em;
+  font-size: 0.85em;
+}
+
+.t-theme-message .t-reaction-picker {
+  width: 300px;
+  height: 200px;
+  margin: 0 10px;
+  border-radius: 0.75em;
+  border: 1px solid #d4d4d4;
+  overflow: hidden;
 }
 
 .t-theme-message .t-mention {
