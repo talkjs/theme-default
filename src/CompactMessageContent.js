@@ -13,7 +13,6 @@ export function CompactMessageContent(props) {
 /** @param {CompactMessageContentProps} props */
 function Content({ message, common }) {
   const firstContent = message.content[0];
-  firstContent.subtype = undefined;
   const { theme, t } = common;
   const { Icon } = theme;
 
@@ -40,12 +39,17 @@ function Content({ message, common }) {
       `;
     }
 
+    if (firstContent.subtype === "audio") {
+      return html`
+        <${Icon} type="attachment" common=${common} />
+        ${firstContent.filename}
+      `;
+    }
+
     if (firstContent.subtype === "voice") {
       return html`
-        <span>
-          <${Icon} type="microphone" common=${common} />
-          ${t.VOICE_MESSAGE} (${formatDuration(firstContent.duration ?? 0)})
-        </span>
+        <${Icon} type="microphone" common=${common} />
+        ${t.VOICE_MESSAGE} (${formatDuration(firstContent.duration ?? 0)})
       `;
     }
 

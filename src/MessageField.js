@@ -37,8 +37,8 @@ export function MessageField(props) {
           <${EmojiPicker} colorScheme="light" />
         </div>
       `}
-      <${EmojiSuggestBar} className="t-theme-emoji-suggest-bar" />
-      <${MentionSuggestList} className="t-theme-mention-suggest-list" />
+      <${EmojiSuggestBar} />
+      <${MentionSuggestList} />
 
       ${referencedMessage &&
       html`<${ReplyBar}
