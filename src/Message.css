@@ -265,7 +265,6 @@
   cursor: pointer;
   font-size: 120%;
   background: inherit;
-  visibility: hidden;
 }
 
 .t-theme-message .t-message-row > button:hover,
@@ -273,14 +272,42 @@
   color: #0761d1;
 }
 
-.t-theme-message .t-message-row > buutton:focus-visible {
+.t-theme-message .t-message-row > button:focus-visible {
   outline: 0;
   box-shadow: 0 0 0 2px rgba(0 125 249 / 50%);
 }
 
-.t-theme-message .t-message-row:hover > button,
-.t-theme-message .t-message-row:focus-within > button {
-  visibility: visible;
+@media (hover: hover) {
+  .t-theme-message .t-message-row > button {
+    visibility: hidden;
+  }
+
+  .t-theme-message .t-message-row:hover > button,
+  .t-theme-message .t-message-row:focus-within > button {
+    visibility: visible;
+  }
+}
+
+@media (hover: none) {
+  /*
+  On iOS, any changes to a page when the user taps on a clickable item will result
+  in the click event not being triggered. (https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html)
+
+  Since tapping also counts as "hover", mounting the MessageActionButton on hover would
+  mean that users tapping on a hyperlink would have to double tap it for it to register
+  the click and navigate.
+
+  Transitioning from `visibility: hidden` to `visibility: visible` on "hover" causes the above issue.
+  Similarly, using `opacity: 0` will exhibit the same behaviour.
+  */
+  .t-theme-message .t-message-row > button {
+    opacity: 0.0001%;
+  }
+
+  .t-theme-message .t-message-row:hover > button,
+  .t-theme-message .t-message-row:focus-within > button {
+    opacity: 100%;
+  }
 }
 
 .t-message-action-menu-button .t-action-menu-icon {
