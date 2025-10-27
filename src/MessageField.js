@@ -47,6 +47,10 @@ export function MessageField(props) {
       />`}
 
       <div className="t-wrapper">
+        ${editor.atTextLimit &&
+        html`<div className="t-text-limit-indicator">
+          ${t.ENTRYBOX_TEXT_LIMIT}
+        </div>`}
         <div className="t-text-form">
           ${conversation.access === "Read" &&
           html`

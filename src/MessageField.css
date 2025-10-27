@@ -231,6 +231,12 @@
   color: currentColor;
 }
 
+.t-theme-message-field .t-text-limit-indicator {
+  opacity: 0.5;
+  font-size: 75%;
+  margin: -0.75em 0 0.5em 2px;
+}
+
 .t-theme-message-field .t-readonly {
   opacity: 0.5;
   user-select: none;
