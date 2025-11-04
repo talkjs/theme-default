@@ -30,7 +30,7 @@
 }
 
 .t-theme-conversation-list-item:last-child {
-  border-bottom: none;
+  margin-bottom: 10px;
 }
 
 .t-theme-conversation-list-item:hover {
