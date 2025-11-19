@@ -17,7 +17,11 @@ function Content({ message, common }) {
   const { Icon } = theme;
 
   if (firstContent.type === "text") {
-    return html`<${Text} block=${firstContent} nonInteractive />`;
+    return html`<${Text}
+      block=${firstContent}
+      message=${message}
+      nonInteractive
+    />`;
   }
 
   if (firstContent.type === "location") {

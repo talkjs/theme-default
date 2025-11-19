@@ -92,11 +92,7 @@ export function Message(props) {
           <${PopoverButton}
             className="t-add-reaction-button"
             popoverComponent=${ReactionPicker}
-            popoverProps=${{
-              messageId: message.id,
-              colorScheme: "light",
-              className: "t-reaction-picker",
-            }}
+            popoverProps=${{ messageId: message.id, colorScheme: "light" }}
             aria-label="Add reaction"
           >
             <${Icon} type="addEmoji" />
