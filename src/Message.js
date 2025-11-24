@@ -113,7 +113,8 @@ export function Message(props) {
               <button
                 className="t-reaction-button"
                 t-active=${(reaction.currentUserReacted && "true") || undefined}
-                onClick=${() => chatbox.toggleReaction(message.id, reaction)}
+                onClick=${() =>
+                  chatbox.toggleReaction(message.id, reaction.emoji)}
                 disabled=${!permissions.canAddReaction}
                 aria-label="${reaction.count} ${peoplePlural} reacted with ${reaction.emoji}. Press to ${actionLabel}"
                 aria-pressed=${reaction.currentUserReacted}

@@ -104,7 +104,7 @@
   margin-bottom: 0.75em;
 }
 
-.t-theme-message button[data-action] {
+.t-theme-message button[t-action] {
   border-radius: 0.375em;
   font-size: inherit;
   margin: 1px 0;
@@ -116,72 +116,67 @@
     border 200ms ease-in-out;
 }
 
-.t-theme-message[t-sender="currentUser"] button[data-action] {
+.t-theme-message[t-sender="currentUser"] button[t-action] {
   color: #0761d1;
   background-color: white;
   border: 1px solid white;
 }
 
-.t-theme-message[t-sender="currentUser"]:enabled button[data-action]:hover,
-.t-theme-message[t-sender="currentUser"]:enabled button[data-action]:active {
+.t-theme-message[t-sender="currentUser"] button[t-action]:hover,
+.t-theme-message[t-sender="currentUser"] button[t-action]:active {
   color: inherit;
   background-color: transparent;
 }
 
-.t-theme-message[t-sender="currentUser"] button[data-action]:focus-visible {
+.t-theme-message[t-sender="currentUser"] button[t-action]:focus-visible {
   outline: white solid 2px;
   outline-offset: 2px;
 }
 
-.t-theme-message[t-sender="other"] button[data-action] {
+.t-theme-message[t-sender="other"] button[t-action] {
   color: #111;
   background-color: transparent;
   border: 1px solid #525252;
 }
 
-.t-theme-message[t-sender="other"]:enabled button[data-action]:hover {
+.t-theme-message[t-sender="other"] button[t-action]:hover {
   color: white;
   background-color: #111;
   border: 1px solid #111;
 }
 
-.t-theme-message[t-sender="other"]:enabled button[data-action]:active {
+.t-theme-message[t-sender="other"] button[t-action]:active {
   color: white;
   background-color: #404040;
   border: 1px solid #404040;
 }
 
-.t-theme-message[t-sender="other"] button[data-action]:focus-visible {
+.t-theme-message[t-sender="other"] button[t-action]:focus-visible {
   outline: #525252 solid 2px;
   outline-offset: 2px;
 }
 
-.t-theme-message[t-sender="system"] button[data-action] {
+.t-theme-message[t-sender="system"] button[t-action] {
   color: white;
   background-color: #007df9;
   border: 1px solid #007df9;
 }
 
-.t-theme-message[t-sender="system"]:enabled button[data-action]:hover {
+.t-theme-message[t-sender="system"] button[t-action]:hover {
   color: white;
   background-color: #0761d1;
   border: 1px solid #0761d1;
 }
 
-.t-theme-message[t-sender="system"]:enabled button[data-action]:active {
+.t-theme-message[t-sender="system"] button[t-action]:active {
   color: white;
   background-color: #3291ff;
   border: 1px solid #3291ff;
 }
 
-.t-theme-message[t-sender="system"] button[data-action]:focus-visible {
+.t-theme-message[t-sender="system"] button[t-action]:focus-visible {
   outline: #007df9 solid 2px;
   outline-offset: 2px;
-}
-
-.t-theme-message button[data-action]:disabled {
-  background-color: gray;
-  border-color: gray;
 }
 
 .t-theme-message .t-message-sender-name {
