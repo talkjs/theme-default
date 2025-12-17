@@ -1,5 +1,5 @@
-import { html } from "@talkjs/react-components/theming";
-/** @import { ReplyBarProps } from "@talkjs/react-components/theming"; */
+import { html } from "@talkjs/react-components";
+/** @import { ReplyBarProps } from "@talkjs/react-components"; */
 
 /** @param {ReplyBarProps} props */
 export function ReplyBar(props) {

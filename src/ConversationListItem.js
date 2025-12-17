@@ -1,5 +1,5 @@
-import { html } from "@talkjs/react-components/theming";
-/** @import { ConversationListItemProps } from "@talkjs/react-components/theming"; */
+import { html } from "@talkjs/react-components";
+/** @import { ConversationListItemProps } from "@talkjs/react-components"; */
 
 /** @param {ConversationListItemProps} props */
 export function ConversationListItem(props) {

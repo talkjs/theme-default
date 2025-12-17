@@ -1,5 +1,5 @@
-import { html, formatFilesize } from "@talkjs/react-components/theming";
-/** @import { FileBlockProps } from "@talkjs/react-components/theming"; */
+import { html, formatFilesize } from "@talkjs/react-components";
+/** @import { FileBlockProps } from "@talkjs/react-components"; */
 
 /** @param {FileBlockProps} props */
 export function FileBlock({ block, downloadUrl, common }) {

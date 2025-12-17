@@ -1,5 +1,5 @@
-import { html } from "@talkjs/react-components/theming";
-/** @import { ReferencedMessageProps } from "@talkjs/react-components/theming"; */
+import { html } from "@talkjs/react-components";
+/** @import { ReferencedMessageProps } from "@talkjs/react-components"; */
 
 /** @param {ReferencedMessageProps} props */
 export function ReferencedMessage({ referencedMessage, common }) {

@@ -5,8 +5,8 @@ import {
   MessageContent,
   ReactionPicker,
   getPhotoUrlWithFallback,
-} from "@talkjs/react-components/theming";
-/** @import { MessageProps } from "@talkjs/react-components/theming"; */
+} from "@talkjs/react-components";
+/** @import { MessageProps } from "@talkjs/react-components"; */
 
 /** @param {MessageProps} props */
 export function Message(props) {

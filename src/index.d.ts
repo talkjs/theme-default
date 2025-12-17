@@ -1,4 +1,4 @@
-import { type Theme } from "@talkjs/react-components/theming";
+import { type Theme } from "@talkjs/react-components_temp";
 
 export declare const ChatHeader = Theme["ChatHeader"];
 export declare const Message = Theme["Message"];

@@ -273,13 +273,14 @@
 }
 
 @media (hover: hover) {
+  /* Use opacity to hide buttons, so they remain keyboard-accessible */
   .t-theme-message .t-message-row > button {
-    visibility: hidden;
+    opacity: 0;
   }
 
   .t-theme-message .t-message-row:hover > button,
   .t-theme-message .t-message-row:focus-within > button {
-    visibility: visible;
+    opacity: 0.75;
   }
 }
 
@@ -292,8 +293,7 @@
   mean that users tapping on a hyperlink would have to double tap it for it to register
   the click and navigate.
 
-  Transitioning from `visibility: hidden` to `visibility: visible` on "hover" causes the above issue.
-  Similarly, using `opacity: 0` will exhibit the same behaviour.
+ using `opacity: 0` will exhibit the same behaviour, so setting it to a very small value instead.
   */
   .t-theme-message .t-message-row > button {
     opacity: 0.0001%;

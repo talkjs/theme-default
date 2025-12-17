@@ -1,5 +1,5 @@
-import { html, getPhotoUrlWithFallback } from "@talkjs/react-components/theming";
-/** @import { MessageListFooterProps } from "@talkjs/react-components/theming"; */
+import { html, getPhotoUrlWithFallback } from "@talkjs/react-components";
+/** @import { MessageListFooterProps } from "@talkjs/react-components"; */
 
 /** @param {MessageListFooterProps} props */
 export function MessageListFooter({ common }) {

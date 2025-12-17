@@ -1,5 +1,5 @@
-import { html, getPhotoUrlWithFallback } from "@talkjs/react-components/theming";
-/** @import { ConversationImageProps } from "@talkjs/react-components/theming"; */
+import { html, getPhotoUrlWithFallback } from "@talkjs/react-components";
+/** @import { ConversationImageProps } from "@talkjs/react-components"; */
 
 /** @param {ConversationImageProps} props */
 export function ConversationImage({ common, conversation, participants }) {

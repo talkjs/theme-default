@@ -1,5 +1,5 @@
-import { formatDuration, html, Text } from "@talkjs/react-components/theming";
-/** @import { CompactMessageContentProps } from "@talkjs/react-components/theming"; */
+import { formatDuration, html, Text } from "@talkjs/react-components";
+/** @import { CompactMessageContentProps } from "@talkjs/react-components"; */
 
 /** @param {CompactMessageContentProps} props */
 export function CompactMessageContent(props) {
