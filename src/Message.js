@@ -82,7 +82,7 @@ export function Message(props) {
               popoverComponent=${MessageActionMenu}
               popoverProps=${{ message, permissions, common }}
               className="t-message-action-menu-button"
-              aria-label="Message actions"
+              aria-label=${t.ARIA_MORE_ACTIONS}
             >
               <${Icon} className="t-action-menu-icon" type="horizontalDots" />
             </${PopoverButton}>
@@ -93,7 +93,7 @@ export function Message(props) {
             className="t-add-reaction-button"
             popoverComponent=${ReactionPicker}
             popoverProps=${{ messageId: message.id, colorScheme: "light" }}
-            aria-label="Add reaction"
+            aria-label=${t.ADD_REACTION}
           >
             <${Icon} type="addEmoji" />
           </${PopoverButton}>
@@ -104,11 +104,6 @@ export function Message(props) {
       html`
         <div className="t-emoji-reactions">
           ${message.reactions.map((reaction) => {
-            const actionLabel = reaction.currentUserReacted
-              ? "remove your reaction"
-              : "add reaction";
-            const peoplePlural = reaction.count === 1 ? "person" : "people";
-
             return html`
               <button
                 className="t-reaction-button"
@@ -116,7 +111,10 @@ export function Message(props) {
                 onClick=${() =>
                   chatbox.toggleReaction(message.id, reaction.emoji)}
                 disabled=${!permissions.canAddReaction}
-                aria-label="${reaction.count} ${peoplePlural} reacted with ${reaction.emoji}. Press to ${actionLabel}"
+                aria-label=${t.ARIA_REACTION_COUNT(
+                  reaction.count,
+                  reaction.emoji,
+                )}
                 aria-pressed=${reaction.currentUserReacted}
                 key=${reaction.emoji}
               >

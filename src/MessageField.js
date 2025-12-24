@@ -88,8 +88,8 @@ export function MessageField(props) {
                 html`<button
                   className="t-emoji-button"
                   t-kind="icon-button"
-                  aria-label="Insert an emoji"
-                  title="Insert an emoji"
+                  aria-label=${t.ARIA_INSERT_EMOJI}
+                  title=${t.ARIA_INSERT_EMOJI}
                   onClick=${() => editor.toggleEmojiPicker()}
                 >
                   <${Icon}
