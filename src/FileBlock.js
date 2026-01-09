@@ -7,7 +7,7 @@ export function FileBlock({ block, downloadUrl, common }) {
 
   return html`
     <div className="t-theme-file-block">
-      <a className="t-body-text" href=${downloadUrl}>
+      <a className="t-body-text" href=${downloadUrl} target="_blank">
         <${Icon}
           type="attachment"
           className="t-attachment-icon"

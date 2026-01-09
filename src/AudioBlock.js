@@ -9,7 +9,7 @@ export function AudioBlock({ block, downloadUrl, common }) {
     <div className="t-theme-audio-block">
       <${AudioPlayer} src=${block.url} filename=${block.filename} />
 
-      <a className="t-body-text" href=${downloadUrl}>
+      <a className="t-body-text" href=${downloadUrl} target="_blank">
         <${Icon}
           type="attachment"
           className="t-attachment-icon"

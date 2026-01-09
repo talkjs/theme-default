@@ -24,7 +24,7 @@ export function VideoBlock({ block, downloadUrl, common }) {
         </div>
       </div>
 
-      <a href=${downloadUrl} className="t-body-text">
+      <a href=${downloadUrl} className="t-body-text" target="_blank">
         <${Icon} className="download-icon" type="download" common=${common} />
         <span>${block.filename}</span>
         <span className="t-filesize"> (${formatFilesize(block.size)})</span>
