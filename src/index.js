@@ -1,10 +1,13 @@
 export { ChatHeader } from "./ChatHeader.js";
+export { MessageListHeader } from "./MessageListHeader.js";
 export { Message } from "./Message.js";
 export { MessageActionMenu } from "./MessageActionMenu.js";
 export { MessageField } from "./MessageField.js";
 export { Icon } from "./Icon.js";
 export { MessageDivider } from "./MessageDivider.js";
 export { MessageListFooter } from "./MessageListFooter.js";
+export { BeforeMessages } from "./BeforeMessages.js";
+export { AfterMessages } from "./AfterMessages.js";
 export { CompactMessageContent } from "./CompactMessageContent.js";
 
 export { AudioBlock } from "./AudioBlock.js";

@@ -1,12 +1,15 @@
 import { type Theme } from "@talkjs/react-components_temp";
 
 export declare const ChatHeader = Theme["ChatHeader"];
+export declare const MessageListHeader = Theme["MessageListHeader"];
 export declare const Message = Theme["Message"];
 export declare const MessageActionMenu = Theme["MessageActionMenu"];
 export declare const MessageField = Theme["MessageField"];
 export declare const Icon = Theme["Icon"];
 export declare const MessageDivider = Theme["MessageDivider"];
 export declare const MessageListFooter = Theme["MessageListFooter"];
+export declare const BeforeMessages = Theme["BeforeMessages"];
+export declare const AfterMessages = Theme["AfterMessages"];
 export declare const CompactMessageContent = Theme["CompactMessageContent"];
 
 export declare const AudioBlock = Theme["AudioBlock"];
