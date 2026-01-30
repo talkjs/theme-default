@@ -1,10 +1,12 @@
-import { html } from "@talkjs/react-components";
+import { html, useParticipants } from "@talkjs/react-components";
 /** @import { ChatHeaderProps } from "@talkjs/react-components" */
 
 /** @param {ChatHeaderProps} props */
 export function ChatHeader(props) {
-  const { conversation, participants, theme } = props.common;
+  const { conversation, theme } = props.common;
   const { ConversationImage } = theme;
+
+  const participants = useParticipants(conversation.id, 10);
 
   return html`
     <div className="t-theme-chat-header">

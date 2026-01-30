@@ -55,10 +55,10 @@ export function GroupChatImage({ participants }) {
           y=${Math.round(counterSize * 0.666)}
           width=${counterSize}
           height=${counterSize}
-          fontSize=${participants.length > 99 ? 10 : 12}
+          fontSize=${participants.length > 9 ? 10 : 12}
           fill="currentColor"
         >
-          ${participants.length > 99 ? "99+" : participants.length}
+          ${participants.length > 9 ? "9+" : participants.length}
         </text>
       </svg>`}
     </div>

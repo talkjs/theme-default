@@ -5,14 +5,17 @@ import {
   MessageContent,
   ReactionPicker,
   getPhotoUrlWithFallback,
+  useParticipants,
 } from "@talkjs/react-components";
 /** @import { MessageProps } from "@talkjs/react-components"; */
 
 /** @param {MessageProps} props */
 export function Message(props) {
   const { message, messageStatus, permissions, common } = props;
-  const { currentUser, theme, participants, chatbox, t } = common;
+  const { currentUser, theme, chatbox, conversation, t } = common;
   const { Avatar, Icon, ReferencedMessage, TimeAgo, MessageActionMenu } = theme;
+
+  const participants = useParticipants(conversation.id, 3);
 
   const isGroupChat = participants.length >= 3;
   const sender = message.sender;

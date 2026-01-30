@@ -1,12 +1,14 @@
-import { html } from "@talkjs/react-components";
+import { html, useParticipants } from "@talkjs/react-components";
 /** @import { ConversationListItemProps } from "@talkjs/react-components"; */
 
 /** @param {ConversationListItemProps} props */
 export function ConversationListItem(props) {
-  const { common, conversation, participants, isSelected } = props;
+  const { common, conversation, isSelected } = props;
   const { currentUser, theme, conversationList } = common;
   const { TimeAgo, ConversationImage, CompactMessageContent } = theme;
   const { lastMessage } = conversation;
+
+  const participants = useParticipants(conversation.id, 10);
 
   const isGroupChat = participants.length >= 3;
   const senderName = lastMessage?.sender?.name;
