@@ -309,6 +309,9 @@
   width: 1.143em;
   height: 1.143em;
 }
+.t-message-action-menu-button[t-message-status="sending"] {
+  visibility: hidden;
+}
 
 .t-theme-message .t-emoji-reactions {
   margin-top: 0.25em;

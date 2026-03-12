@@ -149,7 +149,7 @@
 }
 
 .t-theme-message-field .t-editor .t-text-input {
-  min-height: 3.143em;
+  min-height: 3.3em;
   max-height: 9em;
   border-radius: 0.65em;
   border: 1px solid white;
@@ -197,7 +197,7 @@
   margin-right: 0.28em;
 }
 
-.t-theme-message-field .t-send-button {
+.t-theme-message-field .t-send-column button {
   width: 2.571em;
   height: 2.571em;
   padding: 0.571em;
@@ -215,21 +215,17 @@
   transition: 150ms ease-out;
 }
 
-.t-theme-message-field .t-send-button:hover,
-.t-theme-message-field .t-send-button:focus {
+.t-theme-message-field .t-send-column button:hover,
+.t-theme-message-field .t-send-column button:focus {
   background-color: rgba(38, 38, 38, 0.05);
 }
 
-.t-theme-message-field .t-send-button:focus-visible {
+.t-theme-message-field .t-send-column button:focus-visible {
   outline: 0;
   box-shadow: 0 0 0 2px rgba(0 125 249 / 50%);
 }
 
-.t-theme-message-field .t-send-button {
-  display: flex;
-}
-
-.t-theme-message-field .t-send-button[disabled] {
+.t-theme-message-field .t-send-column button[disabled] {
   color: currentColor;
 }
 

@@ -1,0 +1,58 @@
+
+.t-theme-recording-preview {
+  display: contents;
+}
+
+.t-theme-recording-preview .t-close-button {
+  margin-right: 0.4em;
+  align-self: center;
+}
+
+.t-theme-recording-preview .t-send-button:hover,
+.t-theme-recording-preview .t-close-button:hover {
+  color: #007df9;
+  opacity: 1;
+}
+
+.t-theme-recording-preview .t-textbox-column {
+  padding: 0 1.1em;
+  background-color: #fff;
+  border-radius: 0.75em;
+  border-width: 1px;
+  border-color: #fff;
+  height: 3.3em;
+  max-height: 3.3em;
+  overflow: hidden;
+}
+
+.t-theme-recording-preview .t-audio-player {
+  padding: 0;
+  height: 3.3em;
+}
+
+.t-theme-recording-preview .t-loading {
+  padding: 7px;
+}
+
+.t-theme-recording-preview .t-spinner {
+  width: 24px;
+  height: 24px;
+  animation-name: t-recording-preview-spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes t-recording-preview-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.t-theme-recording-preview .t-error-msg {
+  white-space: normal;
+  color: rgb(239, 68, 68);
+}

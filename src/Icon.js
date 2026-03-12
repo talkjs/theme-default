@@ -553,7 +553,7 @@ function StopIcon({ className }) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      viewBox="0 0 64 64"
+      viewBox="-1 -1 66 66"
       height="24px"
       width="24px"
     >

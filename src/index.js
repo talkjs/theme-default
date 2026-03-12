@@ -3,6 +3,8 @@ export { MessageListHeader } from "./MessageListHeader.js";
 export { Message } from "./Message.js";
 export { MessageActionMenu } from "./MessageActionMenu.js";
 export { MessageField } from "./MessageField.js";
+export { VoiceRecorder } from "./VoiceRecorder.js";
+export { RecordingPreview } from "./RecordingPreview.js";
 export { Icon } from "./Icon.js";
 export { MessageDivider } from "./MessageDivider.js";
 export { MessageListFooter } from "./MessageListFooter.js";

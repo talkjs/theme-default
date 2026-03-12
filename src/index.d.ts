@@ -5,6 +5,8 @@ export declare const MessageListHeader = Theme["MessageListHeader"];
 export declare const Message = Theme["Message"];
 export declare const MessageActionMenu = Theme["MessageActionMenu"];
 export declare const MessageField = Theme["MessageField"];
+export declare const VoiceRecorder = Theme["VoiceRecorder"];
+export declare const RecordingPreview = Theme["RecordingPreview"];
 export declare const Icon = Theme["Icon"];
 export declare const MessageDivider = Theme["MessageDivider"];
 export declare const MessageListFooter = Theme["MessageListFooter"];
@@ -19,7 +21,6 @@ export declare const LocationBlock = Theme["LocationBlock"];
 export declare const TextBlock = Theme["TextBlock"];
 export declare const VoiceBlock = Theme["VoiceBlock"];
 export declare const VideoBlock = Theme["VideoBlock"];
-
 export declare const Avatar = Theme["Avatar"];
 export declare const ConversationImage = Theme["ConversationImage"];
 export declare const GroupChatImage = Theme["GroupChatImage"];

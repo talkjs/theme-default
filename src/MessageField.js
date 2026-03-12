@@ -9,10 +9,16 @@ import {
 
 /** @param {MessageFieldProps} props */
 export function MessageField(props) {
-  const { common, referencedMessage, editor, permissions, editMessageId } =
-    props;
+  const {
+    common,
+    referencedMessage,
+    editor,
+    voiceRecorder,
+    permissions,
+    editMessageId,
+  } = props;
   const { chatbox, device, conversation, t, theme } = common;
-  const { ReplyBar, Icon } = theme;
+  const { ReplyBar, Icon, VoiceRecorder, RecordingPreview } = theme;
 
   const mode = editMessageId ? "edit" : "send";
 
@@ -28,6 +34,9 @@ export function MessageField(props) {
 
   const showEmojiButton =
     mode === "send" && device.supportsEmojiPicker && !device.isMobile;
+
+  const showRecordButton =
+    mode === "send" && editor.isEmpty && permissions.canSendVoiceMessage;
 
   return html`
     <div className="t-theme-message-field" t-mode=${mode}>
@@ -58,7 +67,22 @@ export function MessageField(props) {
               ${t.ENTRYBOX_PLACEHOLDER_CHAT_READONLY}
             </div>
           `}
-          ${conversation.access === "ReadWrite" &&
+          ${voiceRecorder &&
+          (voiceRecorder.state === "recording"
+            ? html`
+                <${VoiceRecorder}
+                  common=${common}
+                  voiceRecorder=${voiceRecorder}
+                />
+              `
+            : html`
+                <${RecordingPreview}
+                  common=${common}
+                  voiceRecorder=${voiceRecorder}
+                />
+              `)}
+          ${!voiceRecorder &&
+          conversation.access === "ReadWrite" &&
           html`
             <div className="t-textbox-column">
               <${Editor} placeholder=${t.ENTRYBOX_PLACEHOLDER} />
@@ -101,9 +125,21 @@ export function MessageField(props) {
             </div>
           `}
           ${mode === "send" &&
+          !voiceRecorder &&
           html`
             <div className="t-send-column">
-              <button
+              ${showRecordButton &&
+              html`<button
+                className="t-record-button"
+                t-kind="icon-button"
+                aria-label=${t.VOICE_MESSAGE}
+                title=${t.VOICE_MESSAGE}
+                onClick=${() => editor.recordVoiceMessage()}
+              >
+                <${Icon} type="mic" common=${common} />
+              </button>`}
+              ${!showRecordButton &&
+              html`<button
                 className="t-send-button"
                 t-kind="icon-button"
                 aria-label=${t.SEND_BUTTON_TEXT}
@@ -111,7 +147,7 @@ export function MessageField(props) {
                 onClick=${() => editor.send()}
               >
                 <${Icon} type="send" common=${common} />
-              </button>
+              </button>`}
             </div>
           `}
           ${mode === "edit" &&

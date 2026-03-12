@@ -24,8 +24,7 @@ export function Message(props) {
   const showAuthor = !isMe && isGroupChat;
   const referencedMessage = message.referencedMessage;
   const showActionMenu =
-    messageStatus !== "sending" &&
-    (permissions.canReplyToMessage || permissions.canDeleteMessage);
+    permissions.canReplyToMessage || permissions.canDeleteMessage;
 
   let senderType;
   if (!sender) {
@@ -82,6 +81,7 @@ export function Message(props) {
         html`
             <${PopoverButton}
               type="menu"
+              t-message-status=${messageStatus}
               popoverComponent=${MessageActionMenu}
               popoverProps=${{ message, permissions, common }}
               className="t-message-action-menu-button"
