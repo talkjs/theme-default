@@ -3,7 +3,7 @@ import { html, useParticipants } from "@talkjs/react-components";
 
 /** @param {ChatHeaderProps} props */
 export function ChatHeader(props) {
-  const { conversation, theme } = props.common;
+  const { conversation, theme, chatbox, t } = props.common;
   const { ConversationImage } = theme;
 
   const participants = useParticipants(conversation.id, 10);
@@ -12,6 +12,14 @@ export function ChatHeader(props) {
     <div className="t-theme-chat-header">
       <div className="t-inner">
         <div className="t-content">
+          <button
+            className="t-back-button"
+            aria-label=${t.INBOX}
+            title=${t.INBOX}
+            onClick=${() => chatbox.clickBackButton()}
+          >
+            <${theme.Icon} type="chevronLeft" common=${props.common} />
+          </button>
           <div className="t-image">
             <${ConversationImage}
               conversation=${conversation}

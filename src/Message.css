@@ -309,7 +309,8 @@
   width: 1.143em;
   height: 1.143em;
 }
-.t-message-action-menu-button[t-message-status="sending"] {
+.t-theme-message[t-status="sending"] .t-message-action-menu-button,
+.t-theme-message[t-status="sending"] .t-add-reaction-button {
   visibility: hidden;
 }
 

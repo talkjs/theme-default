@@ -12,10 +12,10 @@ import {
 /** @param {MessageProps} props */
 export function Message(props) {
   const { message, messageStatus, permissions, common } = props;
-  const { currentUser, theme, chatbox, conversation, t } = common;
+  const { currentUser, theme, chatbox, conversationId, t } = common;
   const { Avatar, Icon, ReferencedMessage, TimeAgo, MessageActionMenu } = theme;
 
-  const participants = useParticipants(conversation.id, 3);
+  const participants = useParticipants(conversationId, 3);
 
   const isGroupChat = participants.length >= 3;
   const sender = message.sender;
@@ -40,6 +40,7 @@ export function Message(props) {
       className="t-theme-message"
       t-sender=${senderType}
       t-message-id=${message.id}
+      t-status=${messageStatus}
     >
       <div className="t-message-row">
         ${sender &&
@@ -81,7 +82,6 @@ export function Message(props) {
         html`
             <${PopoverButton}
               type="menu"
-              t-message-status=${messageStatus}
               popoverComponent=${MessageActionMenu}
               popoverProps=${{ message, permissions, common }}
               className="t-message-action-menu-button"
@@ -135,6 +135,10 @@ export function Message(props) {
 /** @param {MessageProps} props */
 function StatusTick({ messageStatus, common }) {
   const { Icon } = common.theme;
+
+  if (messageStatus === "virtual") {
+    return null;
+  }
 
   if (messageStatus === "sending") {
     return html`

@@ -10,6 +10,7 @@ export { MessageDivider } from "./MessageDivider.js";
 export { MessageListFooter } from "./MessageListFooter.js";
 export { BeforeMessages } from "./BeforeMessages.js";
 export { AfterMessages } from "./AfterMessages.js";
+export { NoConversationSelected } from "./NoConversationSelected.js";
 export { CompactMessageContent } from "./CompactMessageContent.js";
 
 export { AudioBlock } from "./AudioBlock.js";

@@ -12,6 +12,7 @@ export declare const MessageDivider = Theme["MessageDivider"];
 export declare const MessageListFooter = Theme["MessageListFooter"];
 export declare const BeforeMessages = Theme["BeforeMessages"];
 export declare const AfterMessages = Theme["AfterMessages"];
+export declare const NoConversationSelected = Theme["NoConversationSelected"];
 export declare const CompactMessageContent = Theme["CompactMessageContent"];
 
 export declare const AudioBlock = Theme["AudioBlock"];
