@@ -11,7 +11,10 @@ export function ReplyBar(props) {
     <div className="t-theme-reply-bar">
       <${Icon} className="t-reply-icon" type="reply" common=${common} />
 
-      <div className="t-body">
+      <div
+        className="t-body"
+        onClick=${() => chatbox.focusMessage(referencedMessage.id)}
+      >
         <div className="t-sender-name">${referencedMessage.sender.name}</div>
         <div className="t-content">
           <${CompactMessageContent}

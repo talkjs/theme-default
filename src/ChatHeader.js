@@ -3,10 +3,18 @@ import { html, useParticipants } from "@talkjs/react-components";
 
 /** @param {ChatHeaderProps} props */
 export function ChatHeader(props) {
-  const { conversation, theme, chatbox, t } = props.common;
-  const { ConversationImage } = theme;
+  const { conversation, theme, t, chatbox, chatSearchState } = props.common;
+  const { ConversationImage, Icon, ChatSearchBox } = theme;
 
   const participants = useParticipants(conversation.id, 10);
+
+  if (props.permissions.canSearch && chatSearchState !== "hidden") {
+    return html`
+      <div className="t-theme-chat-header">
+        <${ChatSearchBox} common=${props.common} />
+      </div>
+    `;
+  }
 
   return html`
     <div className="t-theme-chat-header">
@@ -31,6 +39,16 @@ export function ChatHeader(props) {
           <div className="t-info">
             <${Title} ...${props} />
           </div>
+        </div>
+        <div className="t-actions">
+          <button
+            className="t-action-button"
+            aria-label=${t.ARIA_SEARCH_INSIDE_CONVERSATION}
+            title=${t.ARIA_SEARCH_INSIDE_CONVERSATION}
+            onClick=${() => chatbox.toggleSearchBox()}
+          >
+            <${Icon} type="search" common=${props.common} />
+          </button>
         </div>
       </div>
     </div>

@@ -40,6 +40,14 @@
   flex-grow: 1;
   padding: 0 1em;
   overflow: hidden;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.t-theme-reply-bar .t-sender-name {
+  font-weight: 600;
+  padding-bottom: 0.165rem;
 }
 
 .t-theme-reply-bar .t-close-icon,

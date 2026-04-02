@@ -1,4 +1,4 @@
-import { type Theme } from "@talkjs/react-components_temp";
+import { type Theme } from "@talkjs/react-components";
 
 export declare const ChatHeader = Theme["ChatHeader"];
 export declare const MessageListHeader = Theme["MessageListHeader"];
@@ -14,6 +14,7 @@ export declare const BeforeMessages = Theme["BeforeMessages"];
 export declare const AfterMessages = Theme["AfterMessages"];
 export declare const NoConversationSelected = Theme["NoConversationSelected"];
 export declare const CompactMessageContent = Theme["CompactMessageContent"];
+export declare const ChatSearchBox = Theme["ChatSearchBox"];
 
 export declare const AudioBlock = Theme["AudioBlock"];
 export declare const FileBlock = Theme["FileBlock"];
@@ -30,3 +31,7 @@ export declare const ReplyBar = Theme["ReplyBar"];
 export declare const TimeAgo = Theme["TimeAgo"];
 
 export declare const ConversationListItem = Theme["ConversationListItem"];
+export declare const GlobalSearchResultItem = Theme["GlobalSearchResultItem"];
+export declare const GlobalSearchBox = Theme["GlobalSearchBox"];
+export declare const GlobalSearchResultHeader =
+  Theme["GlobalSearchResultHeader"];

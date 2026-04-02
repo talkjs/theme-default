@@ -1,4 +1,4 @@
-import { AudioPlayer, formatFilesize, html } from "@talkjs/react-components";
+import { AudioPlayer, formatFilesize, html, Highlightable } from "@talkjs/react-components";
 /** @import { AudioBlockProps } from "@talkjs/react-components"; */
 
 /** @param {AudioBlockProps} props */
@@ -15,7 +15,7 @@ export function AudioBlock({ block, downloadUrl, common }) {
           className="t-attachment-icon"
           common=${common}
         />
-        <span className="t-filename">${block.filename}</span>
+        <${Highlightable} text=${block.filename} />
         <span className="t-filesize"> (${formatFilesize(block.size)})</span>
       </a>
     </div>

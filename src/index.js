@@ -12,6 +12,7 @@ export { BeforeMessages } from "./BeforeMessages.js";
 export { AfterMessages } from "./AfterMessages.js";
 export { NoConversationSelected } from "./NoConversationSelected.js";
 export { CompactMessageContent } from "./CompactMessageContent.js";
+export { ChatSearchBox } from "./ChatSearchBox.js";
 
 export { AudioBlock } from "./AudioBlock.js";
 export { FileBlock } from "./FileBlock.js";
@@ -29,3 +30,6 @@ export { ReplyBar } from "./ReplyBar.js";
 export { TimeAgo } from "./TimeAgo.js";
 
 export { ConversationListItem } from "./ConversationListItem.js";
+export { GlobalSearchResultItem } from "./GlobalSearchResultItem.js";
+export { GlobalSearchBox } from "./GlobalSearchBox.js";
+export { GlobalSearchResultHeader } from "./GlobalSearchResultHeader.js";

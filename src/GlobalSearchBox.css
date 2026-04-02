@@ -1,0 +1,61 @@
+.t-theme-global-search-box {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+
+  margin: 0.74em;
+
+  border: 1px solid #e0e0e0;
+  border-radius: 0.57em;
+  background-color: #f5f5f5;
+  color: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+.t-theme-global-search-box .t-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.74em;
+}
+
+.t-theme-global-search-box:focus-within {
+  border-color: #bbb;
+  background-color: #fff;
+}
+
+.t-theme-global-search-box .t-input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.t-theme-global-search-box .t-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  padding: 0.28em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.t-theme-global-search-box .t-clear:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #666;
+}
+
+.t-theme-global-search-box .t-submit {
+  background: none;
+  border: none;
+  width: 2.28em;
+  height: 2.28em;
+  padding: 0.28em;
+  color: #999;
+  border-radius: 50%;
+  display: flex;
+}

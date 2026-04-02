@@ -1,4 +1,4 @@
-import { html, formatFilesize } from "@talkjs/react-components";
+import { html, formatFilesize, Highlightable } from "@talkjs/react-components";
 /** @import { FileBlockProps } from "@talkjs/react-components"; */
 
 /** @param {FileBlockProps} props */
@@ -13,7 +13,7 @@ export function FileBlock({ block, downloadUrl, common }) {
           className="t-attachment-icon"
           common=${common}
         />
-        <span className="t-filename">${block.filename}</span>
+        <${Highlightable} className="t-filename" text=${block.filename} />
         <span className="t-filesize"> (${formatFilesize(block.size)})</span>
       </a>
     </div>

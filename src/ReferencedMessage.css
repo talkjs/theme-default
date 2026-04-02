@@ -1,6 +1,7 @@
 .t-theme-referenced-message {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .t-theme-referenced-message .t-sender-name {

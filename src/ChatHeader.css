@@ -77,6 +77,41 @@
   box-shadow: inset 0 0 0 1px rgba(50, 50, 50, 0.4);
 }
 
+.t-theme-chat-header .t-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.t-theme-chat-header .t-action-button {
+  /* removing the browser's default button styles: */
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(17, 17, 17, 0.6);
+  transition: 0.2s ease-out;
+
+  /* Increase the tap size of the button */
+  box-sizing: content-box;
+  padding: 0;
+  margin: -0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.t-theme-chat-header .t-action-button:hover {
+  color: rgba(17, 17, 17, 0.8);
+}
+
 .t-theme-chat-header .t-back-button {
   display: none;
 

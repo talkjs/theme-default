@@ -12,7 +12,8 @@ import {
 /** @param {MessageProps} props */
 export function Message(props) {
   const { message, messageStatus, permissions, common } = props;
-  const { currentUser, theme, chatbox, conversationId, t } = common;
+  const { currentUser, theme, chatbox, conversationId, t, focusedMessage } =
+    common;
   const { Avatar, Icon, ReferencedMessage, TimeAgo, MessageActionMenu } = theme;
 
   const participants = useParticipants(conversationId, 3);
@@ -35,12 +36,15 @@ export function Message(props) {
     senderType = "other";
   }
 
+  const focused = message.id === focusedMessage?.id;
+
   return html`
     <div
       className="t-theme-message"
       t-sender=${senderType}
       t-message-id=${message.id}
       t-status=${messageStatus}
+      t-focused=${focused ? "" : undefined}
     >
       <div className="t-message-row">
         ${sender &&

@@ -396,3 +396,28 @@
 .t-theme-message[t-sender="other"] .t-mention[t-is-current-user] {
   background-color: rgba(220, 220, 220, 0.9);
 }
+
+@keyframes focus-animation {
+  0% {
+    background-color: rgba(0, 125, 249, 1);
+  }
+
+  100% {
+    background-color: rgba(0, 125, 249, 0);
+  }
+}
+
+.t-theme-message[t-focused] {
+  animation: focus-animation 3s cubic-bezier(0, 0.77, 0.57, 1);
+}
+
+.t-theme-message[t-sender="currentUser"] .t-highlighted-text {
+  background-color: rgba(17, 17, 17, 1);
+  color: white;
+  filter: invert();
+}
+
+.t-theme-message[t-sender="other"] .t-highlighted-text {
+  background-color: rgba(255, 255, 255, 1);
+  filter: invert();
+}

@@ -21,6 +21,9 @@
 @import url("VoiceBlock.css");
 
 @import url("ConversationListItem.css");
+@import url("GlobalSearchResultItem.css");
+@import url("GlobalSearchResultHeader.css");
+@import url("GlobalSearchBox.css");
 
 @import url("Avatar.css");
 @import url("ConversationImage.css");
@@ -29,3 +32,4 @@
 @import url("ReplyBar.css");
 @import url("TimeAgo.css");
 @import url("CompactMessageContent.css");
+@import url("ChatSearchBox.css");

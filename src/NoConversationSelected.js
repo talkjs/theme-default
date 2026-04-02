@@ -1,3 +1,5 @@
+import { html } from "@talkjs/react-components";
+
 /** @import { NoConversationSelectedProps } from "@talkjs/react-components"; */
 
 /**
@@ -8,5 +10,9 @@
  * @param {NoConversationSelectedProps} props
  */
 export function NoConversationSelected({ common }) {
-  return null;
+  // This component's contents are hidden by default, and only shown when rendered in an inbox.
+  // You can change this in NoConversationSelected.css.
+  return html`<div class="t-theme-no-conversation-selected">
+    ${common.t.SELECT_CONVERSATION}
+  </div>`;
 }

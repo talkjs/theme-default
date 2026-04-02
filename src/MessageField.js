@@ -22,9 +22,7 @@ export function MessageField(props) {
 
   const mode = editMessageId ? "edit" : "send";
 
-  const canEdit = Boolean(
-    mode === "edit" && !editor.atTextLimit && editor.characterCount > 0,
-  );
+  const canSend = !editor.atTextLimit && !editor.isEmpty;
 
   const showLocationButton =
     mode === "send" && editor.isEmpty && permissions.canShareLocation;
@@ -145,6 +143,7 @@ export function MessageField(props) {
                 aria-label=${t.SEND_BUTTON_TEXT}
                 title=${t.SEND_BUTTON_TEXT}
                 onClick=${() => editor.send()}
+                disabled=${!canSend}
               >
                 <${Icon} type="send" common=${common} />
               </button>`}
@@ -162,7 +161,7 @@ export function MessageField(props) {
               <button
                 t-action="save"
                 onClick=${() => editor.send()}
-                disabled=${!canEdit}
+                disabled=${!canSend}
               >
                 ${t.SAVE}
               </button>
