@@ -337,6 +337,12 @@
   padding: 0.2em 0.55em;
   border-radius: 8em;
   background-color: #e8ecee;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.t-theme-message .t-reaction-button > * {
+  pointer-events: none;
 }
 
 .t-theme-message .t-reaction-button[t-active] {
@@ -355,12 +361,14 @@
 }
 
 .t-theme-message .t-reaction-button .t-emoji {
-  font-size: 1.25eem;
+  font-size: 1.25em;
 }
 
 .t-theme-message .t-reaction-button .t-num-reactions {
   padding-left: 0.25em;
   font-size: 0.85em;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.075em;
 }
 
 .t-theme-message .t-reaction-picker {

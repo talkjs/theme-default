@@ -6,6 +6,7 @@ import {
   ReactionPicker,
   getPhotoUrlWithFallback,
   useParticipants,
+  useReactions,
 } from "@talkjs/react-components";
 /** @import { MessageProps } from "@talkjs/react-components"; */
 
@@ -110,29 +111,50 @@ export function Message(props) {
       ${message.reactions.length > 0 &&
       html`
         <div className="t-emoji-reactions">
-          ${message.reactions.map((reaction) => {
-            return html`
-              <button
-                className="t-reaction-button"
-                t-active=${(reaction.currentUserReacted && "true") || undefined}
-                onClick=${() =>
-                  chatbox.toggleReaction(message.id, reaction.emoji)}
-                disabled=${!permissions.canAddReaction}
-                aria-label=${t.ARIA_REACTION_COUNT(
-                  reaction.count,
-                  reaction.emoji,
-                )}
-                aria-pressed=${reaction.currentUserReacted}
-                key=${reaction.emoji}
-              >
-                <span className="t-emoji">${reaction.emoji}</span>
-                <span className="t-num-reactions">${reaction.count}</span>
-              </button>
-            `;
-          })}
+          ${message.reactions.map(
+            (summary) =>
+              html`<${ReactionButton}
+                key=${summary.emoji}
+                summary=${summary}
+                message=${message}
+                common=${common}
+                permissions=${permissions}
+              />`,
+          )}
         </div>
       `}
     </div>
+  `;
+}
+
+function ReactionButton({ summary, message, common, permissions }) {
+  const { t, chatbox, conversationId } = common;
+  const { emoji, count, currentUserReacted } = summary;
+
+  // lazy-load full reaction data on hover
+  const [reactions, subscribe] = useReactions(
+    conversationId,
+    message.id,
+    summary.emoji,
+  );
+  const names = reactions.map((r) => r.user.name);
+  if (reactions.length && reactions.length < summary.count) names.push("...");
+
+  return html`
+    <button
+      className="t-reaction-button"
+      t-active=${(currentUserReacted && "true") || undefined}
+      onClick=${() => chatbox.toggleReaction(message.id, emoji)}
+      disabled=${!permissions.canAddReaction}
+      aria-label=${t.ARIA_REACTION_COUNT(count, emoji)}
+      aria-pressed=${currentUserReacted}
+      onMouseOver=${subscribe}
+      onTouchStart=${subscribe}
+      t-tooltip-text=${names.join(", ")}
+    >
+      <span className="t-emoji">${emoji}</span>
+      <span className="t-num-reactions">${count}</span>
+    </button>
   `;
 }
 
