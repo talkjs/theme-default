@@ -4,19 +4,24 @@
   margin-right: 0.25em;
 }
 
+/* The following sections ensure that lists are more compact by only displaying the first item in the list.*/
+.t-theme-compact-message-content .t-text {
+  display: block;
+  height: 1em; /* iOS 15 compatibility */
+  height: 1lh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .t-theme-compact-message-content .t-text ul {
-  list-style: inside;
   margin: 0;
-  margin-left: 0.5em;
   padding: 0;
-  display: inline;
 }
 
 .t-theme-compact-message-content .t-text li {
-  display: inline list-item;
-  margin-right: 1em;
-}
-
-.t-theme-compact-message-content .t-text li::marker {
-  content: "•  ";
+  padding-left: 0.5em;
+  list-style: inside;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

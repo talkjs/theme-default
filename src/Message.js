@@ -13,8 +13,14 @@ import {
 /** @param {MessageProps} props */
 export function Message(props) {
   const { message, messageStatus, permissions, common } = props;
-  const { currentUser, theme, chatbox, conversationId, t, focusedMessage } =
-    common;
+  const {
+    currentUser,
+    theme,
+    conversation,
+    conversationId,
+    t,
+    focusedMessage,
+  } = common;
   const { Avatar, Icon, ReferencedMessage, TimeAgo, MessageActionMenu } = theme;
 
   const participants = useParticipants(conversationId, 3);
@@ -27,6 +33,9 @@ export function Message(props) {
   const referencedMessage = message.referencedMessage;
   const showActionMenu =
     permissions.canReplyToMessage || permissions.canDeleteMessage;
+
+  const canAddReaction =
+    permissions.canAddReaction && conversation.access === "ReadWrite";
 
   let senderType;
   if (!sender) {
@@ -95,7 +104,7 @@ export function Message(props) {
               <${Icon} className="t-action-menu-icon" type="horizontalDots" />
             </${PopoverButton}>
           `}
-        ${permissions.canAddReaction &&
+        ${canAddReaction &&
         html`
           <${PopoverButton}
             className="t-add-reaction-button"

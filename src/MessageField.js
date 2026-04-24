@@ -22,7 +22,10 @@ export function MessageField(props) {
 
   const mode = editMessageId ? "edit" : "send";
 
-  const canSend = !editor.atTextLimit && !editor.isEmpty;
+  const canSend =
+    !editor.atTextLimit &&
+    !editor.isEmpty &&
+    conversation.access === "ReadWrite";
 
   const showLocationButton =
     mode === "send" && editor.isEmpty && permissions.canShareLocation;
@@ -35,6 +38,8 @@ export function MessageField(props) {
 
   const showRecordButton =
     mode === "send" && editor.isEmpty && permissions.canSendVoiceMessage;
+
+  const showEditor = !voiceRecorder && conversation.access === "ReadWrite";
 
   return html`
     <div className="t-theme-message-field" t-mode=${mode}>
@@ -55,9 +60,10 @@ export function MessageField(props) {
 
       <div className="t-wrapper">
         ${editor.atTextLimit &&
-        html`<div className="t-text-limit-indicator">
-          ${t.ENTRYBOX_TEXT_LIMIT}
-        </div>`}
+        html`
+          <div className="t-text-limit-indicator">${t.ENTRYBOX_TEXT_LIMIT}</div>
+        `}
+
         <div className="t-text-form">
           ${conversation.access === "Read" &&
           html`
@@ -65,22 +71,18 @@ export function MessageField(props) {
               ${t.ENTRYBOX_PLACEHOLDER_CHAT_READONLY}
             </div>
           `}
-          ${voiceRecorder &&
-          (voiceRecorder.state === "recording"
-            ? html`
-                <${VoiceRecorder}
-                  common=${common}
-                  voiceRecorder=${voiceRecorder}
-                />
-              `
-            : html`
-                <${RecordingPreview}
-                  common=${common}
-                  voiceRecorder=${voiceRecorder}
-                />
-              `)}
-          ${!voiceRecorder &&
-          conversation.access === "ReadWrite" &&
+          ${voiceRecorder?.state === "recording" &&
+          html`
+            <${VoiceRecorder} common=${common} voiceRecorder=${voiceRecorder} />
+          `}
+          ${voiceRecorder?.state === "previewing" &&
+          html`
+            <${RecordingPreview}
+              common=${common}
+              voiceRecorder=${voiceRecorder}
+            />
+          `}
+          ${showEditor &&
           html`
             <div className="t-textbox-column">
               <${Editor} placeholder=${t.ENTRYBOX_PLACEHOLDER} />
@@ -123,7 +125,7 @@ export function MessageField(props) {
             </div>
           `}
           ${mode === "send" &&
-          !voiceRecorder &&
+          showEditor &&
           html`
             <div className="t-send-column">
               ${showRecordButton &&

@@ -155,12 +155,3 @@
   min-height: 0.68em;
 }
 
-/* The following sections ensure that lists are more compact by displaying them inline*/
-.t-theme-conversation-list-item .t-message li {
-  display: inline list-item;
-  margin-right: 0.28em;
-}
-
-.t-theme-conversation-list-item .t-message ul {
-  list-style: inside;
-}
