@@ -120,6 +120,7 @@
   border: 0;
   border-radius: 0.5rem;
   cursor: pointer;
+  font-weight: 500;
 
   background-color: rgba(17, 17, 17, 0.1);
   color: rgba(17, 17, 17, 1);
@@ -151,7 +152,7 @@
 .t-theme-message-field .t-editor .t-text-input {
   min-height: 3.3em;
   max-height: 9em;
-  border-radius: 0.65em;
+  border-radius: 0.5em;
   border: 1px solid white;
 
   background-color: white;
@@ -194,7 +195,6 @@
 .t-theme-message-field .t-textbox-column {
   position: relative;
   flex-grow: 1;
-  margin-right: 0.28em;
 }
 
 .t-theme-message-field .t-send-column button {
@@ -249,7 +249,6 @@
   right: 0;
   top: 0;
   bottom: 0;
-  margin-right: 8px;
   display: flex;
   align-items: center;
 }
