@@ -1,3 +1,7 @@
+.t-theme-message-field .t-wrapper {
+  --t-message-control-height: 2.75em;
+}
+
 .t-theme-message-field {
   display: flex;
   flex-direction: column;
@@ -25,6 +29,7 @@
   margin: 0 auto;
   z-index: 2;
 }
+
 .t-theme-message-field[t-mode="edit"] .t-wrapper {
   border: #d4d4d4 solid 1px;
   border-radius: 0.75em;
@@ -67,6 +72,7 @@
   border: #d4d4d4 solid 1px;
   border-radius: 0.75em 0.75em 0 0;
 }
+
 .t-theme-message-field[t-mode="edit"]:has(.t-emoji-suggest-bar) .t-wrapper {
   border-radius: 0 0 0.75em 0.75em;
   border-top: none;
@@ -108,6 +114,7 @@
   background-color: #007df9;
   color: white;
 }
+
 .t-theme-message-field .t-edit-row {
   display: flex;
   gap: 0.5em;
@@ -121,6 +128,7 @@
   border-radius: 0.5rem;
   cursor: pointer;
   font-weight: 500;
+  font-size: 14px;
 
   background-color: rgba(17, 17, 17, 0.1);
   color: rgba(17, 17, 17, 1);
@@ -150,9 +158,9 @@
 }
 
 .t-theme-message-field .t-editor .t-text-input {
-  min-height: 3.3em;
+  min-height: var(--t-message-control-height);
   max-height: 9em;
-  border-radius: 0.5em;
+  border-radius: 9999px;
   border: 1px solid white;
 
   background-color: white;
@@ -174,7 +182,7 @@
 }
 
 .t-theme-message-field .t-editor .t-text-input p {
-  margin: 0.875em 0;
+  margin: 0.65em 0;
   padding: 0;
   border: 0;
   outline: 0;
@@ -190,6 +198,7 @@
   white-space: nowrap;
   align-self: center;
   display: flex;
+  margin-left: 0.5em;
 }
 
 .t-theme-message-field .t-textbox-column {
@@ -198,9 +207,9 @@
 }
 
 .t-theme-message-field .t-send-column button {
-  width: 2.571em;
-  height: 2.571em;
-  padding: 0.571em;
+  width: var(--t-message-control-height);
+  height: var(--t-message-control-height);
+  padding: 0;
   border: 0;
   border-radius: 9999px;
 
@@ -209,15 +218,20 @@
   align-items: center;
 
   cursor: pointer;
-  background: transparent;
-  color: currentColor;
-  opacity: 0.75;
-  transition: 150ms ease-out;
+  background-color: rgb(0 125 249);
+  color: rgb(255 255 255);
+  opacity: 1;
+  transition:
+    background-color 150ms ease-out,
+    color 150ms ease-out,
+    opacity 150ms ease-out,
+    box-shadow 150ms ease-out;
 }
 
-.t-theme-message-field .t-send-column button:hover,
-.t-theme-message-field .t-send-column button:focus {
-  background-color: rgba(38, 38, 38, 0.05);
+.t-theme-message-field .t-send-column button:not([disabled]):hover,
+.t-theme-message-field .t-send-column button:not([disabled]):focus {
+  background-color: #1D4ED8;
+  color: white;
 }
 
 .t-theme-message-field .t-send-column button:focus-visible {
@@ -226,11 +240,14 @@
 }
 
 .t-theme-message-field .t-send-column button[disabled] {
-  color: currentColor;
-  opacity: 0.5;
+  cursor: initial;
+  background-color: white;
+  color: #737373;
 }
+
 .t-theme-message-field .t-send-column button[disabled]:hover {
-  background-color: transparent;
+  background-color: white;
+  color: #737373;
 }
 
 .t-theme-message-field .t-text-limit-indicator {
@@ -249,6 +266,7 @@
   right: 0;
   top: 0;
   bottom: 0;
+  margin-right: 4px;
   display: flex;
   align-items: center;
 }
@@ -260,20 +278,23 @@
   border: 0;
   border-radius: 9999px;
   cursor: pointer;
+
   display: inline-flex;
   justify-content: center;
   align-items: center;
+
   background: transparent;
-  color: currentColor;
-  opacity: 0.75;
-  transition: 150ms ease-out;
+  color: #525252;
+  transition:
+    background-color 150ms ease-out,
+    color 150ms ease-out,
+    box-shadow 150ms ease-out;
 }
 
 .t-theme-message-field [t-kind="icon-button"]:hover,
 .t-theme-message-field [t-kind="icon-button"]:focus {
   background-color: rgba(38 38 38 / 5%);
   color: #007df9;
-  opacity: 1;
 }
 
 /* a11y: show fat outline when the button is focused using eg keyboard navigation */

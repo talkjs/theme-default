@@ -5,7 +5,6 @@ export { MessageActionMenu } from "./MessageActionMenu.js";
 export { MessageField } from "./MessageField.js";
 export { VoiceRecorder } from "./VoiceRecorder.js";
 export { RecordingPreview } from "./RecordingPreview.js";
-export { Icon } from "./Icon.js";
 export { MessageDivider } from "./MessageDivider.js";
 export { MessageListFooter } from "./MessageListFooter.js";
 export { BeforeMessages } from "./BeforeMessages.js";

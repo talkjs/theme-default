@@ -1,11 +1,10 @@
-import { html, SearchInput } from "@talkjs/react-components";
+import { html, SearchInput, Icon } from "@talkjs/react-components";
 /** @import { GlobalSearchBoxProps } from "@talkjs/react-components"; */
 
 /** @param {GlobalSearchBoxProps} props */
 export function GlobalSearchBox(props) {
   const { common, query, setQuery, cancel } = props;
   const { t } = common;
-  const { Icon } = common.theme;
 
   return html`
     <div className="t-theme-global-search-box">
@@ -23,11 +22,11 @@ export function GlobalSearchBox(props) {
           aria-label=${t.ARIA_LEAVE_SEARCH_MODE}
           className="t-clear"
         >
-          <${Icon} type="close" common=${common} />
+          <${Icon} type="close" size="20px" />
         </button>
       `}
       ${query.length === 0 &&
-      html` <${Icon} className="t-submit" type="search" common=${common} /> `}
+      html` <${Icon} className="t-submit" size="20px" type="search" /> `}
     </div>
   `;
 }

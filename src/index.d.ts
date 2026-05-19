@@ -7,7 +7,6 @@ export declare const MessageActionMenu = Theme["MessageActionMenu"];
 export declare const MessageField = Theme["MessageField"];
 export declare const VoiceRecorder = Theme["VoiceRecorder"];
 export declare const RecordingPreview = Theme["RecordingPreview"];
-export declare const Icon = Theme["Icon"];
 export declare const MessageDivider = Theme["MessageDivider"];
 export declare const MessageListFooter = Theme["MessageListFooter"];
 export declare const BeforeMessages = Theme["BeforeMessages"];

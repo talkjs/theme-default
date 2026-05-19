@@ -4,7 +4,7 @@
   width: 100%;
   padding: 0;
   height: auto;
-  padding: 1.14em;
+  padding: 1em;
   border: none;
   border-bottom: 1px solid #d4d4d4;
   background-color: transparent;
@@ -23,6 +23,10 @@
 
 .t-theme-conversation-list-item a {
   color: #525252;
+}
+
+.t-theme-conversation-list-item:first-child {
+  border-top: 1px solid #d4d4d4;
 }
 
 .t-theme-conversation-list-item[t-selected] a {

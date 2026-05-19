@@ -1,10 +1,10 @@
-import { html, useParticipants } from "@talkjs/react-components";
+import { html, Icon, useParticipants } from "@talkjs/react-components";
 /** @import { ChatHeaderProps } from "@talkjs/react-components" */
 
 /** @param {ChatHeaderProps} props */
 export function ChatHeader(props) {
   const { conversation, theme, t, chatbox, chatSearchState } = props.common;
-  const { ConversationImage, Icon, ChatSearchBox } = theme;
+  const { ConversationImage, ChatSearchBox } = theme;
 
   const participants = useParticipants(conversation.id, 10);
 
@@ -26,7 +26,7 @@ export function ChatHeader(props) {
             title=${t.INBOX}
             onClick=${() => chatbox.clickBackButton()}
           >
-            <${theme.Icon} type="chevronLeft" common=${props.common} />
+            <${Icon} type="chevronLeft" />
           </button>
           <div className="t-image">
             <${ConversationImage}
@@ -47,7 +47,7 @@ export function ChatHeader(props) {
             title=${t.ARIA_SEARCH_INSIDE_CONVERSATION}
             onClick=${() => chatbox.toggleSearchBox()}
           >
-            <${Icon} type="search" common=${props.common} />
+            <${Icon} type="search" size="20px" />
           </button>
         </div>
       </div>

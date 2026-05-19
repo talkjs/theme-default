@@ -1,10 +1,9 @@
-import { html, SearchInput } from "@talkjs/react-components";
+import { html, SearchInput, Icon } from "@talkjs/react-components";
 /** @import { ChatSearchBoxProps } from "@talkjs/react-components" */
 
 /** @param { ChatSearchBoxProps } props */
 export function ChatSearchBox(props) {
-  const { t, chatbox, theme, chatSearchState } = props.common;
-  const { Icon } = theme;
+  const { t, chatbox, chatSearchState } = props.common;
 
   let labelText;
   if (chatSearchState === "searching") {
@@ -32,7 +31,7 @@ export function ChatSearchBox(props) {
         aria-label=${t.ARIA_LEAVE_SEARCH_MODE}
         onClick=${() => chatbox.toggleSearchBox()}
       >
-        <${Icon} type="back" />
+        <${Icon} type="arrowLeft" size="20px" />
       </button>
 
       <div className="t-search-field">
@@ -57,7 +56,7 @@ export function ChatSearchBox(props) {
         disabled=${chatSearchState === "searching"}
         onClick=${() => chatbox.jumpToPreviousHighlight()}
       >
-        <${Icon} type="chevronUp" />
+        <${Icon} type="chevronUp" size="20px" />
       </button>
       <button
         className="t-button t-next-button"
@@ -65,7 +64,7 @@ export function ChatSearchBox(props) {
         disabled=${chatSearchState === "searching"}
         onClick=${() => chatbox.jumpToNextHighlight()}
       >
-        <${Icon} type="chevronDown" />
+        <${Icon} type="chevronDown" size="20px" />
       </button>
     </div>
   `;

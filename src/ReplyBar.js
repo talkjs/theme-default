@@ -1,15 +1,15 @@
-import { html } from "@talkjs/react-components";
+import { html, Icon } from "@talkjs/react-components";
 /** @import { ReplyBarProps } from "@talkjs/react-components"; */
 
 /** @param {ReplyBarProps} props */
 export function ReplyBar(props) {
   const { common, referencedMessage } = props;
   const { chatbox, t, theme } = common;
-  const { Icon, CompactMessageContent } = theme;
+  const { CompactMessageContent } = theme;
 
   return html`
     <div className="t-theme-reply-bar">
-      <${Icon} className="t-reply-icon" type="reply" common=${common} />
+      <${Icon} className="t-reply-icon" type="reply" />
 
       <div
         className="t-body"
@@ -30,7 +30,7 @@ export function ReplyBar(props) {
         aria-label=${t.REPLY_MODE_LEAVE_ARIA_LABEL}
         onClick=${() => chatbox.setReferencedMessage(null)}
       >
-        <${Icon} className="t-close-icon" type="close" common=${common} />
+        <${Icon} className="t-close-icon" type="close" />
       </button>
     </div>
   `;

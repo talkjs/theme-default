@@ -1,9 +1,8 @@
-import { html, formatFilesize, Highlightable } from "@talkjs/react-components";
+import { html, formatFilesize, Highlightable, Icon } from "@talkjs/react-components";
 /** @import { VideoBlockProps } from "@talkjs/react-components"; */
 
 /** @param {VideoBlockProps} props */
 export function VideoBlock({ block, downloadUrl, common }) {
-  const { Icon } = common.theme;
   const width = block.width || 1;
   const height = block.height || 1;
   const style = { "--video-w": width, "--video-h": height };
@@ -25,7 +24,7 @@ export function VideoBlock({ block, downloadUrl, common }) {
       </div>
 
       <a href=${downloadUrl} className="t-body-text" target="_blank">
-        <${Icon} className="download-icon" type="download" common=${common} />
+        <${Icon} className="download-icon" type="download" />
         <${Highlightable} text=${block.filename} />
         <span className="t-filesize"> (${formatFilesize(block.size)})</span>
       </a>

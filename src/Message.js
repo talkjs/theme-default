@@ -1,5 +1,6 @@
 import {
   html,
+  Icon,
   PopoverButton,
   getRandomColor,
   MessageContent,
@@ -21,7 +22,7 @@ export function Message(props) {
     t,
     focusedMessage,
   } = common;
-  const { Avatar, Icon, ReferencedMessage, TimeAgo, MessageActionMenu } = theme;
+  const { Avatar, ReferencedMessage, TimeAgo, MessageActionMenu } = theme;
 
   const participants = useParticipants(conversationId, 3);
 
@@ -92,8 +93,10 @@ export function Message(props) {
           </div>
         </div>
 
-        ${showActionMenu &&
-        html`
+        ${(showActionMenu || canAddReaction) &&
+        html`<div className="t-message-buttons">
+          ${showActionMenu &&
+          html`
             <${PopoverButton}
               type="menu"
               popoverComponent=${MessageActionMenu}
@@ -104,17 +107,18 @@ export function Message(props) {
               <${Icon} className="t-action-menu-icon" type="horizontalDots" />
             </${PopoverButton}>
           `}
-        ${canAddReaction &&
-        html`
-          <${PopoverButton}
-            className="t-add-reaction-button"
-            popoverComponent=${ReactionPicker}
-            popoverProps=${{ messageId: message.id, colorScheme: "light" }}
-            aria-label=${t.ADD_REACTION}
-          >
-            <${Icon} type="addEmoji" />
-          </${PopoverButton}>
-        `}
+          ${canAddReaction &&
+          html`
+            <${PopoverButton}
+              className="t-add-reaction-button"
+              popoverComponent=${ReactionPicker}
+              popoverProps=${{ messageId: message.id, colorScheme: "light" }}
+              aria-label=${t.ADD_REACTION}
+            >
+              <${Icon} type="addEmoji" />
+            </${PopoverButton}>
+          `}
+        </div>`}
       </div>
 
       ${message.reactions.length > 0 &&
@@ -168,9 +172,7 @@ function ReactionButton({ summary, message, common, permissions }) {
 }
 
 /** @param {MessageProps} props */
-function StatusTick({ messageStatus, common }) {
-  const { Icon } = common.theme;
-
+function StatusTick({ messageStatus }) {
   if (messageStatus === "virtual") {
     return null;
   }
@@ -178,11 +180,7 @@ function StatusTick({ messageStatus, common }) {
   if (messageStatus === "sending") {
     return html`
       <span className="t-status-icon">
-        <${Icon}
-          type="spinner"
-          className="t-message-loading-spinner"
-          common=${common}
-        />
+        <${Icon} type="spinner" className="t-message-loading-spinner" />
       </span>
     `;
   }

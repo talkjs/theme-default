@@ -1,9 +1,9 @@
 .t-theme-chat-header {
   display: flex;
   align-items: center;
-  height: 4.5em;
-  background-color: #ececec;
-  border-bottom: 1px solid #d4d4d4;
+  height: 4.75em;
+  background-color: rgb(236 236 236);
+  border-bottom: 1px solid rgb(212 212 212);
   flex-shrink: 0;
 }
 
@@ -63,18 +63,17 @@
   width: 0.75em;
   height: 0.75em;
   border-radius: 100%;
-
   margin: 0 0.75em -1px 0.275em;
 }
 
 .t-theme-chat-header .t-online-indicator[t-status="online"] {
-  background-color: #22c55e;
+  background-color: rgb(34 197 94);
 }
 
 .t-theme-chat-header .t-online-indicator[t-status="offline"] {
-  background-color: #fff;
-  -webkit-box-shadow: inset 0 0 0 1px rgba(50, 50, 50, 0.4);
-  box-shadow: inset 0 0 0 1px rgba(50, 50, 50, 0.4);
+  background-color: rgb(255 255 255);
+  -webkit-box-shadow: inset 0 0 0 1px rgb(50 50 50 / 40%);
+  box-shadow: inset 0 0 0 1px rgb(50 50 50 / 40%);
 }
 
 .t-theme-chat-header .t-actions {
@@ -88,17 +87,18 @@
 .t-theme-chat-header .t-action-button {
   /* removing the browser's default button styles: */
   background-color: transparent;
-  border: none;
-  outline: none;
-  color: inherit;
+  border: 0;
+  outline: 0;
+  color: rgb(82 82 82);
   cursor: pointer;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  color: rgba(17, 17, 17, 0.6);
-  transition: 0.2s ease-out;
+  transition:
+    color 150ms ease-out,
+    box-shadow 150ms ease-out;
 
   /* Increase the tap size of the button */
   box-sizing: content-box;
@@ -108,8 +108,34 @@
   height: 2.5rem;
 }
 
-.t-theme-chat-header .t-action-button:hover {
-  color: rgba(17, 17, 17, 0.8);
+.t-theme-chat-header .t-action-button svg {
+  color: currentColor;
+  fill: currentColor;
+}
+
+.t-theme-chat-header .t-action-button:hover,
+.t-theme-chat-header .t-action-button:focus {
+  background-color: transparent;
+  color: rgb(17 17 17);
+}
+
+.t-theme-chat-header .t-action-button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgb(0 125 249 / 50%);
+}
+
+.t-theme-chat-header .t-action-button:disabled,
+.t-theme-chat-header .t-action-button[disabled] {
+  cursor: initial;
+  color: rgb(163 163 163);
+}
+
+.t-theme-chat-header .t-action-button:disabled:hover,
+.t-theme-chat-header .t-action-button[disabled]:hover,
+.t-theme-chat-header .t-action-button:disabled:focus,
+.t-theme-chat-header .t-action-button[disabled]:focus {
+  background-color: transparent;
+  color: rgb(163 163 163);
 }
 
 .t-theme-chat-header .t-back-button {
@@ -121,21 +147,30 @@
   height: 36px;
   padding: 0;
   border: 0;
-  border-radius: 9999px;
   cursor: pointer;
   justify-content: center;
   align-items: center;
-  background: transparent;
+  background-color: transparent;
+  color: rgb(82 82 82);
+  transition:
+    color 150ms ease-out,
+    box-shadow 150ms ease-out;
+}
+
+.t-theme-chat-header .t-back-button svg {
   color: currentColor;
-  opacity: 0.75;
-  transition: 150ms ease-out;
+  fill: currentColor;
 }
 
 .t-theme-chat-header .t-back-button:hover,
 .t-theme-chat-header .t-back-button:focus {
-  background-color: rgba(38 38 38 / 5%);
-  color: #007df9;
-  opacity: 1;
+  background-color: transparent;
+  color: rgb(17 17 17);
+}
+
+.t-theme-chat-header .t-back-button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgb(0 125 249 / 50%);
 }
 
 [t-mobile-inbox] .t-theme-chat-header .t-back-button {

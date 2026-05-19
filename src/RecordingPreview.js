@@ -1,4 +1,4 @@
-import { html, AudioPlayer } from "@talkjs/react-components";
+import { html, AudioPlayer, Icon } from "@talkjs/react-components";
 /** @import { RecordingPreviewProps } from "@talkjs/react-components" */
 
 /**
@@ -9,8 +9,7 @@ import { html, AudioPlayer } from "@talkjs/react-components";
  */
 export function RecordingPreview(props) {
   const { common, voiceRecorder } = props;
-  const { t, theme } = common;
-  const { Icon } = theme;
+  const { t } = common;
 
   return html`
     <div className="t-theme-recording-preview">
@@ -21,7 +20,7 @@ export function RecordingPreview(props) {
         title=${t.ARIA_CANCEL_UPLOAD}
         onClick=${() => voiceRecorder.cancel()}
       >
-        <${Icon} type="close" common=${common} />
+        <${Icon} type="close" size="24px" />
       </button>
 
       <div className="t-textbox-column">
@@ -32,7 +31,7 @@ export function RecordingPreview(props) {
       html`
         <div className="t-send-column">
           <div className="t-loading">
-            <${Icon} type="spinner" common=${common} className="t-spinner" />
+            <${Icon} type="spinner" className="t-spinner" />
           </div>
         </div>
       `}
@@ -46,7 +45,7 @@ export function RecordingPreview(props) {
             title=${t.SEND_BUTTON_TEXT}
             onClick=${() => voiceRecorder.send()}
           >
-            <${Icon} type="send" common=${common} />
+            <${Icon} type="arrowUp" size="20px" />
           </button>
         </div>
       `}

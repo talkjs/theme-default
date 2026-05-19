@@ -1,33 +1,63 @@
-
 .t-theme-recording-preview {
   display: contents;
 }
 
 .t-theme-recording-preview .t-close-button {
-  margin-right: 0.4em;
+  width: var(--t-message-control-height);
+  height: var(--t-message-control-height);
+  margin-right: 0.5em;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  cursor: pointer;
+
+  display: inline-flex;
   align-self: center;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgb(255 255 255);
+  color: rgb(82 82 82);
+  opacity: 1;
+  transition:
+    background-color 150ms ease-out,
+    color 150ms ease-out,
+    box-shadow 150ms ease-out;
 }
 
-.t-theme-recording-preview .t-send-button:hover,
-.t-theme-recording-preview .t-close-button:hover {
-  color: #007df9;
+.t-theme-recording-preview .t-close-button svg {
+  color: currentColor;
+  fill: currentColor;
+}
+
+.t-theme-recording-preview .t-close-button:hover,
+.t-theme-recording-preview .t-close-button:focus {
+  background-color: rgb(255 255 255 / 75%);
+  color: rgb(17 17 17);
   opacity: 1;
 }
 
+.t-theme-recording-preview .t-close-button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgb(0 125 249 / 50%);
+}
+
 .t-theme-recording-preview .t-textbox-column {
-  padding: 0 1.1em;
-  background-color: #fff;
-  border-radius: 0.75em;
-  border-width: 1px;
-  border-color: #fff;
-  height: 3.3em;
-  max-height: 3.3em;
+  height: var(--t-message-control-height);
+  max-height: var(--t-message-control-height);
+  padding: 0 1em;
   overflow: hidden;
+
+  background-color: rgb(255 255 255);
+  border-radius: 9999px;
+  border-width: 1px;
+  border-color: rgb(255 255 255);
 }
 
 .t-theme-recording-preview .t-audio-player {
   padding: 0;
-  height: 3.3em;
+  height: 100%;
+  font-size: 85%;
 }
 
 .t-theme-recording-preview .t-loading {
@@ -54,5 +84,5 @@
 
 .t-theme-recording-preview .t-error-msg {
   white-space: normal;
-  color: rgb(239, 68, 68);
+  color: rgb(239 68 68);
 }

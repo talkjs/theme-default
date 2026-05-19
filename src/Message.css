@@ -231,7 +231,6 @@
   margin-top: 0.6em;
   opacity: 75%;
 
-  min-width: 3.5ch;
   text-align: right;
 }
 
@@ -248,7 +247,13 @@
   min-width: 1em;
 }
 
-.t-theme-message .t-message-row > button {
+.t-theme-message .t-message-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.t-theme-message .t-message-buttons > button {
   border: none;
   width: 36px;
   height: 36px;
@@ -262,24 +267,24 @@
   background: inherit;
 }
 
-.t-theme-message .t-message-row > button:hover,
-.t-theme-message .t-message-row > button:focus {
+.t-theme-message .t-message-buttons > button:hover,
+.t-theme-message .t-message-buttons > button:focus {
   color: #0761d1;
 }
 
-.t-theme-message .t-message-row > button:focus-visible {
+.t-theme-message .t-message-buttons > button:focus-visible {
   outline: 0;
   box-shadow: 0 0 0 2px rgba(0 125 249 / 50%);
 }
 
 @media (hover: hover) {
   /* Use opacity to hide buttons, so they remain keyboard-accessible */
-  .t-theme-message .t-message-row > button {
+  .t-theme-message .t-message-buttons > button {
     opacity: 0;
   }
 
-  .t-theme-message .t-message-row:hover > button,
-  .t-theme-message .t-message-row:focus-within > button {
+  .t-theme-message .t-message-row:hover .t-message-buttons > button,
+  .t-theme-message .t-message-row:focus-within .t-message-buttons > button {
     opacity: 0.75;
   }
 }
@@ -295,12 +300,12 @@
 
  using `opacity: 0` will exhibit the same behaviour, so setting it to a very small value instead.
   */
-  .t-theme-message .t-message-row > button {
+  .t-theme-message .t-message-buttons > button {
     opacity: 0.0001%;
   }
 
-  .t-theme-message .t-message-row:hover > button,
-  .t-theme-message .t-message-row:focus-within > button {
+  .t-theme-message .t-message-row:hover .t-message-buttons > button,
+  .t-theme-message .t-message-row:focus-within .t-message-buttons > button {
     opacity: 100%;
   }
 }

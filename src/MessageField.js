@@ -1,5 +1,6 @@
 import {
   html,
+  Icon,
   EmojiPicker,
   Editor,
   EmojiSuggestBar,
@@ -18,7 +19,7 @@ export function MessageField(props) {
     editMessageId,
   } = props;
   const { chatbox, device, conversation, t, theme } = common;
-  const { ReplyBar, Icon, VoiceRecorder, RecordingPreview } = theme;
+  const { ReplyBar, VoiceRecorder, RecordingPreview } = theme;
 
   const mode = editMessageId ? "edit" : "send";
 
@@ -96,7 +97,7 @@ export function MessageField(props) {
                   title=${t.UPLOAD_SHARE_LOCATION}
                   onClick=${() => editor.shareLocation()}
                 >
-                  <${Icon} type="locationPin" common=${common} />
+                  <${Icon} type="location" size="20px" />
                 </button>`}
                 ${showAttachmentButton &&
                 html`<button
@@ -106,7 +107,7 @@ export function MessageField(props) {
                   title=${t.UPLOAD_SEND_FILE}
                   onClick=${() => editor.attachFile()}
                 >
-                  <${Icon} type="attach" common=${common} />
+                  <${Icon} type="attachment" size="20px" />
                 </button>`}
                 ${showEmojiButton &&
                 html`<button
@@ -117,8 +118,8 @@ export function MessageField(props) {
                   onClick=${() => editor.toggleEmojiPicker()}
                 >
                   <${Icon}
+                    size=${editor.showEmojiPicker ? "24px" : "20px"}
                     type=${editor.showEmojiPicker ? "close" : "emoji"}
-                    common=${common}
                   />
                 </button>`}
               </div>
@@ -136,7 +137,7 @@ export function MessageField(props) {
                 title=${t.VOICE_MESSAGE}
                 onClick=${() => editor.recordVoiceMessage()}
               >
-                <${Icon} type="mic" common=${common} />
+                <${Icon} type="microphone" size="20px" />
               </button>`}
               ${!showRecordButton &&
               html`<button
@@ -147,7 +148,7 @@ export function MessageField(props) {
                 onClick=${() => editor.send()}
                 disabled=${!canSend}
               >
-                <${Icon} type="send" common=${common} />
+                <${Icon} type="arrowUp" size="20px" />
               </button>`}
             </div>
           `}

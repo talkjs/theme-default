@@ -1,4 +1,4 @@
-import { html, formatDuration, Waveform } from "@talkjs/react-components";
+import { html, formatDuration, Waveform, Icon } from "@talkjs/react-components";
 /** @import { VoiceRecorderProps } from "@talkjs/react-components" */
 
 /**
@@ -9,8 +9,7 @@ import { html, formatDuration, Waveform } from "@talkjs/react-components";
  */
 export function VoiceRecorder(props) {
   const { common, voiceRecorder } = props;
-  const { t, theme } = common;
-  const { Icon } = theme;
+  const { t } = common;
 
   return html`
     <div className="t-theme-voice-recorder">
@@ -21,7 +20,7 @@ export function VoiceRecorder(props) {
         title=${t.ARIA_CANCEL_RECORDING}
         onClick=${() => voiceRecorder.cancel()}
       >
-        <${Icon} type="close" common=${common} />
+        <${Icon} type="close" size="24px" />
       </button>
 
       <div className="t-textbox-column t-waveform-wrapper">
@@ -39,7 +38,7 @@ export function VoiceRecorder(props) {
           title=${t.ARIA_STOP_RECORDING}
           onClick=${() => voiceRecorder.stop()}
         >
-          <${Icon} type="stop" common=${common} className="t-stop-icon" />
+          <${Icon} type="stop" className="t-stop-icon" size="20px" />
         </button>
       </div>
     </div>
